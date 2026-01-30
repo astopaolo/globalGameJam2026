@@ -1,24 +1,21 @@
 package it.gamejam.truncate.bubblenap.ui;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-
-import javax.swing.JPanel;
-
 import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class CreditsMenuPanel extends JPanel {
 
 	private static final long serialVersionUID = 7717652359188444409L;
 	private static Image backgroundBlur = ImageLoader.getImageBackground_Blur();
 	private static Image back = ImageLoader.getImageBack();
-	private static Image creditBed = ImageLoader.getCreditsBed();
+	//private static Image creditBed = ImageLoader.getCreditsBed();
 
 	private static int CREDIT_BED_X = (1280 / 2) - 550;
 	private static int CREDIT_BED_Y = 45;
@@ -77,8 +74,8 @@ public class CreditsMenuPanel extends JPanel {
 		g.drawImage(backgroundBlur, 0, 0, this.getWidth(), this.getHeight(), null);
 		g.drawImage(back, BACK_X, BACK_Y, 330, 83, null);
 
-		g.drawImage(creditBed, CREDIT_BED_X, CREDIT_BED_Y, (int) (creditBed.getWidth(null) * 0.7),
-				(int) (creditBed.getHeight(null) * 0.7), null);
+//		g.drawImage(creditBed, CREDIT_BED_X, CREDIT_BED_Y, (int) (creditBed.getWidth(null) * 0.7),
+//				(int) (creditBed.getHeight(null) * 0.7), null);
 
 	}
 }

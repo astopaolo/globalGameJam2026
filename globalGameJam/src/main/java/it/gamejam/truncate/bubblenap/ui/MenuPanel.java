@@ -17,12 +17,10 @@ public class MenuPanel extends JPanel {
 	private static final Color C_WHITE = new Color(255, 255, 255, 241);
 	private static final long serialVersionUID = -5148674646680024173L;
 	private static Image playButtonImage = ImageLoader.getImagePlay();
-	private static Image ExitButtonImage = ImageLoader.getImageExit();
+	private static Image exitButtonImage = ImageLoader.getImageExit();
 	private static Image creditsButtonImage = ImageLoader.getImageCredits();
-	// private static Image titleImage = ImageLoader.getImageTitle();
 
-	//private static Image background = ImageLoader.getImageBackground();
-	private static Image background = ImageLoader.getGameScreen();
+	private static Image background = ImageLoader.getImageBackground();
 
 	private static int PLAY_BUTTON_X = 850;
 	private static int PLAY_BUTTON_Y = 270;
@@ -110,10 +108,10 @@ public class MenuPanel extends JPanel {
 						&& (e.getY() >= EXIT_Y)
 						&& (e.getY() <= (EXIT_Y + ImageLoader.getImageExit().getHeight(null)))) {
 
-					ExitButtonImage = ImageLoader.getImageExit_Pressed();
+					exitButtonImage = ImageLoader.getImageExit_Pressed();
 
 				} else {
-					ExitButtonImage = ImageLoader.getImageExit();
+					exitButtonImage = ImageLoader.getImageExit();
 					// Exit End
 				}
 
@@ -133,7 +131,7 @@ public class MenuPanel extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		g.drawImage(background, 0, 0, 2690, this.getHeight(), null);
+		g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
 
 		g.setColor(Color.WHITE);
 		g.setFont(titleFont);
@@ -141,7 +139,7 @@ public class MenuPanel extends JPanel {
 		g.drawImage(creditsButtonImage, CREDITS_X, CREDITS_Y, null);
 
 		g.drawImage(playButtonImage, PLAY_BUTTON_X, PLAY_BUTTON_Y, null);
-		g.drawImage(ExitButtonImage, EXIT_X, EXIT_Y, null);
+		g.drawImage(exitButtonImage, EXIT_X, EXIT_Y, null);
 
 		g.setColor(C_WHITE);
 		g.setFont(titleFont);
