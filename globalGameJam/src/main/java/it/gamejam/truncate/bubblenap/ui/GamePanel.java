@@ -114,8 +114,8 @@ public class GamePanel extends JPanel implements Repaintable {
 		if (font == null) {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/bubble_gum.otf")));
-				font = new Font("Bubble gum", Font.BOLD, 50);
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
+				font = new Font("Creepster", Font.BOLD, 55);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}

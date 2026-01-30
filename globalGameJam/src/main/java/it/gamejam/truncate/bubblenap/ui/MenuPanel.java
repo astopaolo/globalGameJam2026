@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class MenuPanel extends JPanel {
 
-	private static final Color C_GREEN = new Color(203, 224, 108, 241);
+	private static final Color C_WHITE = new Color(255, 255, 255, 241);
 	private static final long serialVersionUID = -5148674646680024173L;
 	private static Image playButtonImage = ImageLoader.getImagePlay();
 	private static Image ExitButtonImage = ImageLoader.getImageExit();
@@ -24,13 +24,13 @@ public class MenuPanel extends JPanel {
 	//private static Image background = ImageLoader.getImageBackground();
 	private static Image background = ImageLoader.getGameScreen();
 
-	private static int PLAY_BUTTON_X = 750;
+	private static int PLAY_BUTTON_X = 850;
 	private static int PLAY_BUTTON_Y = 270;
 
-	private static int CREDITS_X = PLAY_BUTTON_X - 90;
+	private static int CREDITS_X = PLAY_BUTTON_X ;
 	private static int CREDITS_Y = PLAY_BUTTON_Y + 150;
 
-	private static int EXIT_X = PLAY_BUTTON_X + 10;
+	private static int EXIT_X = PLAY_BUTTON_X ;
 	private static int EXIT_Y = PLAY_BUTTON_Y + 300;
 
 	MainFrame frame;
@@ -143,10 +143,10 @@ public class MenuPanel extends JPanel {
 		g.drawImage(playButtonImage, PLAY_BUTTON_X, PLAY_BUTTON_Y, null);
 		g.drawImage(ExitButtonImage, EXIT_X, EXIT_Y, null);
 
-		g.setColor(C_GREEN);
+		g.setColor(C_WHITE);
 		g.setFont(titleFont);
 
-		g.drawString("Mask or Die", 20, 180);
+		g.drawString("Mask or Die", 210, 180);
 
 	}
 
@@ -154,8 +154,8 @@ public class MenuPanel extends JPanel {
 		if (titleFont == null) {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/bubble_gum.otf")));
-				titleFont = new Font("Bubble gum", Font.BOLD, 180);
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
+				titleFont = new Font("Creepster", Font.BOLD, 180);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}

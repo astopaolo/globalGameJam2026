@@ -1,23 +1,13 @@
 package it.gamejam.truncate.bubblenap.ui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-
-import javax.swing.JPanel;
-import javax.swing.Timer;
-
-import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 
 public class VideoPanel extends JPanel {
 
@@ -27,7 +17,7 @@ public class VideoPanel extends JPanel {
 	private int currentFrame;
 	private EnumPanel nextPanelToDraw;
 	private List<byte[]> musics;
-	private Font bubbleFont;
+	private Font font;
 	private Optional<String> message;
 
 	public VideoPanel(final MainFrame frame, final List<Image> videoFrames, final EnumPanel nextPanelToDraw,
@@ -60,7 +50,7 @@ public class VideoPanel extends JPanel {
 
 			if (message.isPresent()) {
 				g.setColor(Color.WHITE);
-				g.setFont(bubbleFont);
+				g.setFont(font);
 
 				g.drawString(message.get(), 15, 768 - 50);
 			}
@@ -89,11 +79,11 @@ public class VideoPanel extends JPanel {
 	}
 
 	private void loadFont() {
-		if (bubbleFont == null) {
+		if (font == null) {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/bubble_gum.otf")));
-				bubbleFont = new Font("Bubble gum", Font.BOLD, 55);
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
+				font = new Font("Creepster", Font.BOLD, 55);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}
