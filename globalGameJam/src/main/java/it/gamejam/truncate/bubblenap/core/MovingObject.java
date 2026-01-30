@@ -13,13 +13,14 @@ public abstract class MovingObject {
 	protected Image image;
 
 
-	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy) {
+	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy, final Image image) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.dx = dx;
 		this.dy = dy;
+		this.image = image;
 	}
 
 	protected abstract void applyEffect(GameManager gameManager);

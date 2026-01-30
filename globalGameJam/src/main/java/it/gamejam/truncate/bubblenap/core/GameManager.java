@@ -1,5 +1,6 @@
 package it.gamejam.truncate.bubblenap.core;
 
+import it.gamejam.truncate.bubblenap.core.enums.MaskType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 import it.gamejam.truncate.bubblenap.ui.Repaintable;
 
 public class GameManager {
+	private Werewolf werewolf;
 	private MaskedPlayer player;
 	private Repaintable repaintable;
 	private List<MovingObject> objects = new CopyOnWriteArrayList<>();
@@ -96,6 +98,7 @@ public class GameManager {
 						continue;
 					}
 					long elapsed = System.currentTimeMillis() - last;
+					getObjects().add(new Werewolf(600,0,100,100,player.getSpeed(),0, MaskType.saverio));
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));
 					getObjects().forEach(o -> {
 						if (o.collide(player)) {

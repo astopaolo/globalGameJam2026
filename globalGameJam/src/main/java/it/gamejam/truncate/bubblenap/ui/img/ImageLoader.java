@@ -44,8 +44,8 @@ public class ImageLoader {
 	static {
 		try {
 
-//			mosquito = ImageIO
-//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/mosquito.png"));
+			mosquito = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/test.jpg"));
 //
 //			creditsBed = ImageIO
 //					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
