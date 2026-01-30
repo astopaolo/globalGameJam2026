@@ -45,7 +45,7 @@ public class GameManager {
 		gameOver.set(true);
 	}
 
-	public MaskedPlayer getBubble() {
+	public MaskedPlayer getMaskedPlayer() {
 		return player;
 	}
 

@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Repaintable {
 	public GamePanel(final GameManager gameManager, final MainFrame frame) {
 		this.gameManager = gameManager;
 		this.mainFrame = frame;
-		player=gameManager.getBubble();
+		player=gameManager.getMaskedPlayer();
 		setPreferredSize(new Dimension(1280, 768));
 		setBackground(Color.DARK_GRAY);
 		addKeyListener(new KeyAdapter() {
@@ -80,8 +80,8 @@ public class GamePanel extends JPanel implements Repaintable {
 				}.start();
 			}
 		} else {
-			firstBackgroundX-=2;
-			secondBackgroundX-=2;
+			firstBackgroundX-=gameManager.getMaskedPlayer().getSpeed();
+			secondBackgroundX-=gameManager.getMaskedPlayer().getSpeed();
 
 			if (firstBackgroundX <= -2690) {
 				firstBackgroundX = 2690;
