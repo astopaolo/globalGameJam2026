@@ -67,8 +67,8 @@ public class JavaCVPoseDetection {
 			System.out.println("╚════════════════════════════════════════════╝\n");
 
 			// Percorsi dei modelli (modifica questi percorsi)
-			String poseProto = "model/pose_deploy_linevec_faster_4_stages.prototxt";
-			String poseWeights = "model/pose_iter_160000.caffemodel";
+			String poseProto = "test-pose/model/pose_deploy_linevec_faster_4_stages.prototxt";
+			String poseWeights = "test-pose/model/pose_iter_160000.caffemodel";
 //			String poseProto = "pose/pose_deploy_linevec.prototxt";
 //			String poseWeights = "pose/pose_iter_440000.caffemodel";
 
