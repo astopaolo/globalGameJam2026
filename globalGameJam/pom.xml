@@ -19,30 +19,27 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>be.tarsos.dsp</groupId>
-			<artifactId>core</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>be.tarsos.dsp</groupId>
-			<artifactId>jvm</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.18.2</version>
-		</dependency>
+	        <groupId>ai.djl</groupId>
+	        <artifactId>api</artifactId>
+	        <version>0.36.0</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>ai.djl.tensorflow</groupId>
+	        <artifactId>tensorflow-engine</artifactId>
+	        <version>0.36.0</version>
+	        <scope>runtime</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.github.sarxos</groupId>
+	        <artifactId>webcam-capture</artifactId>
+	        <version>0.3.12</version>
+	    </dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.18.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.github.psambit9791</groupId>
-			<artifactId>jdsp</artifactId>
-			<version>3.1.0</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>

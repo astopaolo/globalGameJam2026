@@ -1,6 +1,7 @@
 package it.gamejam.truncate.bubblenap.ui;
 
 import it.gamejam.truncate.bubblenap.core.GameManager;
+import it.gamejam.truncate.bubblenap.core.MaskedPlayer;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
@@ -11,8 +12,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+
+
 public class GamePanel extends JPanel implements Repaintable {
 	private static final long serialVersionUID = 1L;
+	private final MaskedPlayer player;
 	private final GameManager gameManager;
 
 	private int firstBackgroundX = 0;
@@ -26,6 +30,7 @@ public class GamePanel extends JPanel implements Repaintable {
 	public GamePanel(final GameManager gameManager, final MainFrame frame) {
 		this.gameManager = gameManager;
 		this.mainFrame = frame;
+		player=gameManager.getBubble();
 		setPreferredSize(new Dimension(1280, 768));
 		setBackground(Color.DARK_GRAY);
 		addKeyListener(new KeyAdapter() {

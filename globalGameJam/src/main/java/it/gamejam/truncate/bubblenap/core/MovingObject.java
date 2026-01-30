@@ -11,23 +11,23 @@ public abstract class MovingObject {
 	protected double dx;
 	protected double dy;
 	protected Image image;
-	protected double targetX;
-	protected double targetY;
 
-	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy,
-			final double targetX, final double targetY) {
+
+	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.dx = dx;
 		this.dy = dy;
-		this.setTargetX(targetX);
-		this.setTargetY(targetY);
 	}
 
 	protected abstract void applyEffect(GameManager gameManager);
 
+
+	public boolean collide(final MaskedPlayer bubble) {
+		return bubble.getX()>=x-dx && bubble.getX()<=x+dx;
+	}
 
 	public double getDx() {
 		return dx;
@@ -39,14 +39,6 @@ public abstract class MovingObject {
 
 	public int getHeight() {
 		return height;
-	}
-
-	public double getTargetX() {
-		return targetX;
-	}
-
-	public double getTargetY() {
-		return targetY;
 	}
 
 	public Image getTransformedImage() {
@@ -84,14 +76,6 @@ public abstract class MovingObject {
 		this.height = image.getHeight(null);
 	}
 
-	public void setTargetX(final double targetX) {
-		this.targetX = targetX;
-	}
-
-	public void setTargetY(final double targetY) {
-		this.targetY = targetY;
-	}
-
 	public void setWidth(final int width) {
 		this.width = width;
 	}
@@ -104,8 +88,7 @@ public abstract class MovingObject {
 		this.y = y;
 	}
 
-	public void updatePosition(final long elapsed) {
-		x += dx * elapsed * 1.6;
-		y += dy * elapsed * 1.6;
+	public void updatePosition(final long elapsed, double speed) {
+		x += speed * elapsed;
 	}
 }
