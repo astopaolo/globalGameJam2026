@@ -51,6 +51,7 @@ public class GamePanel extends JPanel implements Repaintable {
 	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		g.setClip(new Polygon(new int[] {0,getWidth()-320,getWidth()-320,getWidth(),getWidth(),0}, new int[] {0,0,240,240,getHeight(),getHeight()},6 ));
 
         // Enable anti-aliasing for text
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

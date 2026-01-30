@@ -80,7 +80,11 @@ public class DJLWebcamClassifier extends JFrame {
 
 		this.predictor = model.newPredictor(translator);
 	}
-
+	
+	public Webcam getWebcam() {
+		return webcam;
+	}
+	
 	private void startInferenceLoop() {
 		new Thread(() -> {
 			while (isRunning) {

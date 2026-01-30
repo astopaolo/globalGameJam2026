@@ -87,6 +87,7 @@ public class GameManager {
 		points = 0;
 		objects.clear();
 		long rate = 1000 / 100;
+		//getObjects().add(new Werewolf(600,0,100,100,player.getSpeed(),0, MaskType.saverio));
 		Runnable updater = new Runnable() {
 
 			@Override
@@ -98,7 +99,6 @@ public class GameManager {
 						continue;
 					}
 					long elapsed = System.currentTimeMillis() - last;
-					getObjects().add(new Werewolf(600,0,100,100,player.getSpeed(),0, MaskType.saverio));
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));
 					getObjects().forEach(o -> {
 						if (o.collide(player)) {
@@ -125,7 +125,9 @@ public class GameManager {
 //		player.start();
 
 	}
-
+	public DJLWebcamClassifier getClassifier() {
+		return classifier;
+	}
 	
 	public void setMask(String maskName) {
 		this.currentMaskName = maskName;

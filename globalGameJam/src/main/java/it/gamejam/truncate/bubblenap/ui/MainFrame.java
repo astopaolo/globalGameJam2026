@@ -7,6 +7,13 @@ import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
+
+import com.github.sarxos.webcam.WebcamPanel;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,10 +50,12 @@ public class MainFrame extends JFrame {
 	private final VideoPanel gameOverVideoPanel;
 	private final ScorePanel scorePanel;
 
+	private GameManager gameManager;
+
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-		GameManager gameManager = new GameManager();
+		gameManager = new GameManager();
 		setTitle("Mask or Die");
 		menuPanel = new MenuPanel(this);
 		creditsMenu = new CreditsMenuPanel(this);
@@ -87,7 +96,7 @@ public class MainFrame extends JFrame {
 			this.setContentPane(creditsMenu);
 			break;
 		case GAME_PANEL:
-			this.setContentPane(gamePanel);
+			this.setContentPane(wrap(gamePanel));
 			gamePanel.requestFocus();
 			try {
 				gamePanel.startGame();
@@ -113,5 +122,25 @@ public class MainFrame extends JFrame {
 
 		pack();
 		setLocationRelativeTo(null);
+	}
+
+	private Container wrap(GamePanel gamePanel) {
+		JLayeredPane layeredPane=new JLayeredPane();
+		layeredPane.setPreferredSize(gamePanel.getPreferredSize());
+		gamePanel.setBounds(0, 0, gamePanel.getPreferredSize().width, gamePanel.getPreferredSize().height);
+//		JPanel p=new JPanel() {
+//			@Override
+//			protected void paintComponent(Graphics g) {
+//				g.setColor(Color.red);
+//				g.fillRect(0, 0, getWidth(), getHeight());
+//				System.out.println("MainFrame.wrap(...).new JPanel() {...}.paintComponent()");
+//			}
+//		};
+		WebcamPanel p = new WebcamPanel(gameManager.getClassifier().getWebcam()) ;
+		p.setPreferredSize(new Dimension(320,240));
+		p.setBounds(gamePanel.getPreferredSize().width-p.getPreferredSize().width,0,p.getPreferredSize().width,p.getPreferredSize().height);
+		layeredPane.add(p);
+		layeredPane.add(gamePanel);
+		return layeredPane;
 	}
 }
