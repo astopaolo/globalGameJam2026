@@ -1,26 +1,17 @@
 package it.gamejam.truncate.bubblenap.ui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import it.gamejam.truncate.bubblenap.core.GameManager;
+import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
+import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
+import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JPanel;
-
-import it.gamejam.truncate.bubblenap.core.GameManager;
-import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
-import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
-import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 public class ScorePanel extends JPanel {
 	private static final long serialVersionUID = -2020644767984510521L;
@@ -69,6 +60,7 @@ public class ScorePanel extends JPanel {
 				if ((e.getX() >= BACK_X) && (e.getX() <= (BACK_X + ImageLoader.getImageBack().getWidth(null)))
 						&& (e.getY() >= BACK_Y)
 						&& (e.getY() <= (BACK_Y + ImageLoader.getImageBack().getHeight(null)))) {
+
 					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 3f);
 
 					frame.drawPanel(EnumPanel.MENU_PANEL, true);

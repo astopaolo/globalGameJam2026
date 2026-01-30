@@ -20,45 +20,45 @@ public class SoundProvider {
 	static {
 		try {
 
-			try (FileInputStream fis = new FileInputStream("resources/audio/bubble-explosion.wav")) {
-				bubleExplosion = new byte[fis.available()];
-				fis.read(bubleExplosion);
-			}
-
+//			try (FileInputStream fis = new FileInputStream("resources/audio/bubble-explosion.wav")) {
+//				bubleExplosion = new byte[fis.available()];
+//				fis.read(bubleExplosion);
+//			}
+//
 			try (FileInputStream fis = new FileInputStream("resources/audio/female-scream.wav")) {
 				femaleScream = new byte[fis.available()];
 				fis.read(femaleScream);
 			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/video_intro.wav")) {
-				videoIntro = new byte[fis.available()];
-				fis.read(videoIntro);
-			}
-
+//
+//			try (FileInputStream fis = new FileInputStream("resources/audio/video_intro.wav")) {
+//				videoIntro = new byte[fis.available()];
+//				fis.read(videoIntro);
+//			}
+//
 			try (FileInputStream fis = new FileInputStream("resources/audio/game_over.wav")) {
 				gameOver = new byte[fis.available()];
 				fis.read(gameOver);
 			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/menu.wav")) {
-				menu = new byte[fis.available()];
-				fis.read(menu);
-			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/bubbleMenuClick.wav")) {
-				bubbleMenuClick = new byte[fis.available()];
-				fis.read(bubbleMenuClick);
-			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_base.wav")) {
-				ggj_test_base = new byte[fis.available()];
-				fis.read(ggj_test_base);
-			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_sample_1.wav")) {
-				ggj_test_sample_1 = new byte[fis.available()];
-				fis.read(ggj_test_sample_1);
-			}
+//
+//			try (FileInputStream fis = new FileInputStream("resources/audio/menu.wav")) {
+//				menu = new byte[fis.available()];
+//				fis.read(menu);
+//			}
+//
+//			try (FileInputStream fis = new FileInputStream("resources/audio/bubbleMenuClick.wav")) {
+//				bubbleMenuClick = new byte[fis.available()];
+//				fis.read(bubbleMenuClick);
+//			}
+//
+//			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_base.wav")) {
+//				ggj_test_base = new byte[fis.available()];
+//				fis.read(ggj_test_base);
+//			}
+//
+//			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_sample_1.wav")) {
+//				ggj_test_sample_1 = new byte[fis.available()];
+//				fis.read(ggj_test_sample_1);
+//			}
 
 		} catch (final Exception e) {
 			e.printStackTrace();

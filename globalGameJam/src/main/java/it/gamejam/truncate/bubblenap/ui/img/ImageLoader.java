@@ -1,11 +1,10 @@
 package it.gamejam.truncate.bubblenap.ui.img;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 public class ImageLoader {
 
@@ -45,12 +44,12 @@ public class ImageLoader {
 	static {
 		try {
 
-			mosquito = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/mosquito.png"));
-
-			creditsBed = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
-
+//			mosquito = ImageIO
+//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/mosquito.png"));
+//
+//			creditsBed = ImageIO
+//					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
+//
 			background = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
 			background_blur = ImageIO
@@ -75,22 +74,22 @@ public class ImageLoader {
 
 			backPressed = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back_Pressed.png"));
-			gameover = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/gameover.png"));
-			bollaMuco = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco.png"));
-			bollaMucoScoppiata = ImageIO.read(
-					Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco_scoppiata.png"));
+//			gameover = ImageIO
+//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/gameover.png"));
+//			bollaMuco = ImageIO
+//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco.png"));
+//			bollaMucoScoppiata = ImageIO.read(
+//					Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco_scoppiata.png"));
 			gameScreen = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen.png"));
-			hourGlass = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/hourglass.png"));
-
+//			hourGlass = ImageIO
+//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/hourglass.png"));
+//
 			scoreBackground = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/score_background.png"));
-
-			introVideoFrames = getVideoFrames("img/video/intro/", 100);
-			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
+//
+//			introVideoFrames = getVideoFrames("img/video/intro/", 100);
+//			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
 
 		} catch (final IOException e) {
 
@@ -98,21 +97,11 @@ public class ImageLoader {
 		}
 	}
 
-	public static Image getBollaMuco() {
-		return bollaMuco;
-	}
-
-	public static Image getBollaMucoScoppiata() {
-		return bollaMucoScoppiata;
-	}
 
 	public static Image getCreditsBed() {
 		return creditsBed;
 	}
 
-	public static Image getGameover() {
-		return gameover;
-	}
 
 	public static List<Image> getGameOverVideoFrames() {
 		return gameOverVideoFrames;
@@ -122,9 +111,6 @@ public class ImageLoader {
 		return gameScreen;
 	}
 
-	public static Image getHourGlass() {
-		return hourGlass;
-	}
 
 	public static Image getImageBack() {
 		return back;

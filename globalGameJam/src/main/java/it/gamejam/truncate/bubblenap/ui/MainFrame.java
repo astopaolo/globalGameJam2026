@@ -1,15 +1,14 @@
 
 package it.gamejam.truncate.bubblenap.ui;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.swing.JFrame;
-
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
+import javax.swing.*;
+import java.util.List;
+import java.util.Optional;
 
 public class MainFrame extends JFrame {
 
@@ -25,8 +24,8 @@ public class MainFrame extends JFrame {
 
 	public static void main(final String[] args) throws Exception {
 
-		backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenu(), 3f);
-		backgroundMusic.playLoop();
+		//backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenu(), 3f);
+		//backgroundMusic.playLoop();
 		final JFrame mainFrame = new MainFrame();
 		mainFrame.setVisible(true);
 
@@ -40,7 +39,7 @@ public class MainFrame extends JFrame {
 
 	private final CreditsMenuPanel creditsMenu;
 	private final GamePanel gamePanel;
-	private final VideoPanel introVideoPanel;
+	//private final VideoPanel introVideoPanel;
 	private final VideoPanel gameOverVideoPanel;
 	private final ScorePanel scorePanel;
 
@@ -48,11 +47,11 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		GameManager gameManager = new GameManager();
-		setTitle("BubbleNap");
+		setTitle("Mask or Die");
 		menuPanel = new MenuPanel(this);
 		creditsMenu = new CreditsMenuPanel(this);
-		introVideoPanel = new VideoPanel(this, ImageLoader.getIntroVideoFrames(), EnumPanel.GAME_PANEL,
-				List.of(SoundProvider.getVideoIntro()), Optional.of(MESSAGE_VIDEO_INTRO));
+//		introVideoPanel = new VideoPanel(this, ImageLoader.getIntroVideoFrames(), EnumPanel.GAME_PANEL,
+//				List.of(SoundProvider.getVideoIntro()), Optional.of(MESSAGE_VIDEO_INTRO));
 
 		gamePanel = new GamePanel(gameManager, this);
 		scorePanel = new ScorePanel(gameManager, this);
@@ -98,8 +97,8 @@ public class MainFrame extends JFrame {
 			}
 			break;
 		case INTRO_VIDEO_PANEL:
-			this.setContentPane(introVideoPanel);
-			introVideoPanel.playVideoAndDrawNextPanel();
+//			this.setContentPane(introVideoPanel);
+//			introVideoPanel.playVideoAndDrawNextPanel();
 			break;
 		case GAME_OVER_VIDEO_PANEL:
 			this.setContentPane(gameOverVideoPanel);

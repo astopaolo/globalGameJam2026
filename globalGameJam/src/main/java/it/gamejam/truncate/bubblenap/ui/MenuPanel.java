@@ -1,25 +1,16 @@
 package it.gamejam.truncate.bubblenap.ui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
+import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
+import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JPanel;
-
-import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
-import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
-import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 public class MenuPanel extends JPanel {
 
@@ -67,10 +58,11 @@ public class MenuPanel extends JPanel {
 						&& (e.getX() <= (PLAY_BUTTON_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= PLAY_BUTTON_Y)
 						&& (e.getY() <= (PLAY_BUTTON_Y + ImageLoader.getImagePlay().getHeight(null)))) {
-					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
+				//	SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
 
-					frame.getBackgroundMusic().stop();
-					frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
+					//frame.getBackgroundMusic().stop();
+					//frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
+					frame.drawPanel(EnumPanel.GAME_PANEL);
 				}
 				if ((e.getX() >= CREDITS_X) && (e.getX() <= (CREDITS_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= CREDITS_Y)
