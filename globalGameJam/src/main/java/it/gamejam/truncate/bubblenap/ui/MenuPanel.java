@@ -21,7 +21,8 @@ public class MenuPanel extends JPanel {
 	private static Image creditsButtonImage = ImageLoader.getImageCredits();
 	// private static Image titleImage = ImageLoader.getImageTitle();
 
-	private static Image Background = ImageLoader.getImageBackground();
+	//private static Image background = ImageLoader.getImageBackground();
+	private static Image background = ImageLoader.getGameScreen();
 
 	private static int PLAY_BUTTON_X = 750;
 	private static int PLAY_BUTTON_Y = 270;
@@ -50,7 +51,7 @@ public class MenuPanel extends JPanel {
 				if ((e.getX() >= EXIT_X) && (e.getX() <= (EXIT_X + ImageLoader.getImageExit().getWidth(null)))
 						&& (e.getY() >= EXIT_Y)
 						&& (e.getY() <= (EXIT_Y + ImageLoader.getImageExit().getHeight(null)))) {
-					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 3f);
+					//SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 3f);
 
 					System.exit(0);
 				}
@@ -132,7 +133,7 @@ public class MenuPanel extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		g.drawImage(Background, 0, 0, this.getWidth(), this.getHeight(), null);
+		g.drawImage(background, 0, 0, 2690, this.getHeight(), null);
 
 		g.setColor(Color.WHITE);
 		g.setFont(titleFont);
@@ -145,7 +146,7 @@ public class MenuPanel extends JPanel {
 		g.setColor(C_GREEN);
 		g.setFont(titleFont);
 
-		g.drawString("Bubble Nap", 50, 180);
+		g.drawString("Mask or Die", 20, 180);
 
 	}
 
