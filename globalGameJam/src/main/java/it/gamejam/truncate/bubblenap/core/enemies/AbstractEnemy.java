@@ -25,9 +25,10 @@ public abstract class AbstractEnemy extends MovingObject {
   @Override
   protected void applyEffect(GameManager gameManager) {
 	  if(!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
-      gameManager.gameOver();
+//      gameManager.gameOver();
+		  System.err.println("gameover");
     }else{
-      System.out.println("Enemy defeated!");
+      System.out.println("Enemy tricked!");
     }
   }
 }
