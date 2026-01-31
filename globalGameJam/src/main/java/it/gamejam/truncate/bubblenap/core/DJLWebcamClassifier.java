@@ -1,5 +1,6 @@
 package it.gamejam.truncate.bubblenap.core;
 
+import it.gamejam.truncate.bubblenap.core.enums.MaskType;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -97,7 +98,8 @@ public class DJLWebcamClassifier extends JFrame {
 						// Esegue la classificazione
 						Classifications result = predictor.predict(img);
 						Classifications.Classification best = result.best();
-						gameManager.setMask(best.getClassName());
+
+						gameManager.setMask(MaskType.valueOf(best.getClassName().split(" ")[1].toUpperCase()));
 						// Aggiorna l'etichetta
 //						String text = String.format("%s (%.2f%%)", best.getClassName(), best.getProbability() * 100);
 

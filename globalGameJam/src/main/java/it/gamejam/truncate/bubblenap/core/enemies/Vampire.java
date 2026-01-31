@@ -7,13 +7,8 @@ import java.awt.Image;
 
 public class Vampire extends AbstractEnemy{
 
-  public Vampire(int x, int y, int width, int height, double dx, double dy, MaskType maskType) {
-    super(x, y, width, height, dx, dy, maskType, ImageLoader.getVampire());
-  }
-
-  @Override
-  protected void applyEffect(GameManager gameManager) {
-    gameManager.gameOver();
+  public Vampire(int x, int y, int width, int height, double dx, double dy) {
+    super(x, y, width, height, dx, dy, MaskType.VAMPIRE, ImageLoader.getVampire());
   }
 
 }

@@ -7,12 +7,8 @@ import java.awt.Image;
 
 public class Mummy extends AbstractEnemy {
 
-  public Mummy(int x, int y, int width, int height, double dx, double dy, MaskType maskType) {
-    super(x, y, width, height, dx, dy, maskType, ImageLoader.getMummy());
+  public Mummy(int x, int y, int width, int height, double dx, double dy) {
+    super(x, y, width, height, dx, dy, MaskType.MUMMY, ImageLoader.getMummy());
   }
 
-  @Override
-  protected void applyEffect(GameManager gameManager) {
-    gameManager.gameOver();
-  }
 }

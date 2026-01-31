@@ -5,6 +5,7 @@ import it.gamejam.truncate.bubblenap.core.enemies.EnemyFactory;
 import it.gamejam.truncate.bubblenap.core.enemies.EnemySpawner;
 import it.gamejam.truncate.bubblenap.core.enemies.EnemyType;
 import it.gamejam.truncate.bubblenap.core.enemies.Werewolf;
+import it.gamejam.truncate.bubblenap.core.enums.MaskType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -30,7 +31,7 @@ public class GameManager {
 	private DJLWebcamClassifier classifier;
 	private EnemyFactory factory;
 	private EnemySpawner spawner;
-	private String currentMaskName;
+	private MaskType currentMaskName;
 	private int firstBackgroundX = 0;
 	private int secondBackgroundX = 2690;
 
@@ -156,9 +157,11 @@ public class GameManager {
 		return classifier;
 	}
 	
-	public void setMask(String maskName) {
+	public void setMask(MaskType maskName) {
 		this.currentMaskName = maskName;
 	}
+
+	public MaskType getCurrentMask() { return currentMaskName; }
 
 	public int getActiveEnemyCount() {
 		return (int) getObjects().stream()
