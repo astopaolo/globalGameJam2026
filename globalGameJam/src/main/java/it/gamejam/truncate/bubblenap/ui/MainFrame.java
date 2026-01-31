@@ -1,25 +1,15 @@
 
 package it.gamejam.truncate.bubblenap.ui;
 
+import com.github.sarxos.webcam.WebcamPanel;
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
-
-import com.github.sarxos.webcam.WebcamPanel;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.KeyboardFocusManager;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,8 +27,8 @@ public class MainFrame extends JFrame {
 
 	public static void main(final String[] args) throws Exception {
 
-		//backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenu(), 3f);
-		//backgroundMusic.playLoop();
+		backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenuSound(), 3f);
+		backgroundMusic.playLoop();
 		final JFrame mainFrame = new MainFrame();
 		mainFrame.setVisible(true);
 

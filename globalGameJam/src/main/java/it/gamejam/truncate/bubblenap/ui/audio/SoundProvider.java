@@ -7,58 +7,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SoundProvider {
-	private static byte[] menu;
+	private static byte[] menuSound;
 	private static byte[] gameOver;
 	private static byte[] videoIntro;
 	private static byte[] femaleScream;
 	private static byte[] bubleExplosion;
 
-	private static byte[] bubbleMenuClick;
-	private static byte[] ggj_test_base;
-	private static byte[] ggj_test_sample_1;
 
 	static {
 		try {
 
-//			try (FileInputStream fis = new FileInputStream("resources/audio/bubble-explosion.wav")) {
-//				bubleExplosion = new byte[fis.available()];
-//				fis.read(bubleExplosion);
-//			}
-//
 			try (FileInputStream fis = new FileInputStream("resources/audio/female-scream.wav")) {
 				femaleScream = new byte[fis.available()];
 				fis.read(femaleScream);
 			}
-//
-//			try (FileInputStream fis = new FileInputStream("resources/audio/video_intro.wav")) {
-//				videoIntro = new byte[fis.available()];
-//				fis.read(videoIntro);
-//			}
-//
+
 			try (FileInputStream fis = new FileInputStream("resources/audio/game_over.wav")) {
 				gameOver = new byte[fis.available()];
 				fis.read(gameOver);
 			}
-//
-//			try (FileInputStream fis = new FileInputStream("resources/audio/menu.wav")) {
-//				menu = new byte[fis.available()];
-//				fis.read(menu);
-//			}
-//
-//			try (FileInputStream fis = new FileInputStream("resources/audio/bubbleMenuClick.wav")) {
-//				bubbleMenuClick = new byte[fis.available()];
-//				fis.read(bubbleMenuClick);
-//			}
-//
-//			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_base.wav")) {
-//				ggj_test_base = new byte[fis.available()];
-//				fis.read(ggj_test_base);
-//			}
-//
-//			try (FileInputStream fis = new FileInputStream("resources/audio/ggj_test_sample_1.wav")) {
-//				ggj_test_sample_1 = new byte[fis.available()];
-//				fis.read(ggj_test_sample_1);
-//			}
+
+			try (FileInputStream fis = new FileInputStream("resources/audio/menu-sound.wav")) {
+				menuSound = new byte[fis.available()];
+				fis.read(menuSound);
+			}
+
 
 		} catch (final Exception e) {
 			e.printStackTrace();
@@ -66,9 +39,6 @@ public class SoundProvider {
 		}
 	}
 
-	public static byte[] getBubbleMenuClick() {
-		return bubbleMenuClick;
-	}
 
 	public static byte[] getBubleExplosion() {
 		return bubleExplosion;
@@ -82,16 +52,9 @@ public class SoundProvider {
 		return gameOver;
 	}
 
-	public static byte[] getGGJTestBase() {
-		return ggj_test_base;
-	}
 
-	public static byte[] getGGJTestSample1() {
-		return ggj_test_sample_1;
-	}
-
-	public static byte[] getMenu() {
-		return menu;
+	public static byte[] getMenuSound() {
+		return menuSound;
 	}
 
 	public static Map<String, byte[]> getSamples(final File dir) throws IOException {

@@ -1,7 +1,5 @@
 package it.gamejam.truncate.bubblenap.ui;
 
-import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
-import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
@@ -58,14 +56,14 @@ public class MenuPanel extends JPanel {
 						&& (e.getY() <= (PLAY_BUTTON_Y + ImageLoader.getImagePlay().getHeight(null)))) {
 				//	SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
 
-					//frame.getBackgroundMusic().stop();
+					frame.getBackgroundMusic().stop();
 					//frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
 					frame.drawPanel(EnumPanel.GAME_PANEL);
 				}
 				if ((e.getX() >= CREDITS_X) && (e.getX() <= (CREDITS_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= CREDITS_Y)
 						&& (e.getY() <= (CREDITS_Y + ImageLoader.getImagePlay().getHeight(null)))) {
-					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
+					//SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
 					frame.drawPanel(EnumPanel.CREDITS_MENU_PANEL);
 				}
 
