@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = -6974599828262854447L;
 
 	private static SimpleAudioPlayer backgroundMusic;
+	private static SimpleAudioPlayer gameMusic;
 
 	public static SimpleAudioPlayer getBackgroundMusic() {
 		return backgroundMusic;
@@ -27,8 +28,14 @@ public class MainFrame extends JFrame {
 
 	public static void main(final String[] args) throws Exception {
 
-		backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenuSound(), 3f);
+		backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenuSound(), 1f);
 		backgroundMusic.playLoop();
+
+
+		gameMusic = new SimpleAudioPlayer(SoundProvider.getGameSound(), 1f);
+		gameMusic.playLoop();
+		gameMusic.stop();
+
 		final JFrame mainFrame = new MainFrame();
 		mainFrame.setVisible(true);
 
@@ -63,7 +70,7 @@ public class MainFrame extends JFrame {
 		gamePanel = new GamePanel(gameManager, this);
 		scorePanel = new ScorePanel(gameManager, this);
 		gameOverVideoPanel = new VideoPanel(this, ImageLoader.getGameOverVideoFrames(), EnumPanel.SCORE_PANEL,
-				List.of(SoundProvider.getGameOver(), SoundProvider.getFemaleScream()), Optional.empty());
+				List.of(SoundProvider.getGameOver()), Optional.empty());
 
 		gameManager.setRepaintable(gamePanel);
 		setUndecorated(true);
@@ -91,6 +98,7 @@ public class MainFrame extends JFrame {
 			this.setContentPane(menuPanel);
 			if (restartMusic) {
 				try {
+					gameMusic.stop();
 					backgroundMusic.restart();
 				} catch (final Exception e1) {
 					e1.printStackTrace();
@@ -103,6 +111,15 @@ public class MainFrame extends JFrame {
 			break;
 		case GAME_PANEL:
 			this.setContentPane(gamePanel);
+			if (restartMusic) {
+				try {
+					backgroundMusic.stop();
+					gameMusic.restart();
+				} catch (final Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+
 //			gamePanel.requestFocus();
 			SwingUtilities.invokeLater(()->{showWebcamDialog();});
 			try {

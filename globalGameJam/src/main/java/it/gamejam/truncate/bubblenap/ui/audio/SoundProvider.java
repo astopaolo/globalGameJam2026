@@ -8,18 +8,15 @@ import java.util.Map;
 
 public class SoundProvider {
 	private static byte[] menuSound;
+	private static byte[] gameSound;
 	private static byte[] gameOver;
-	private static byte[] videoIntro;
-	private static byte[] femaleScream;
-	private static byte[] clickSound;
 
 
 	static {
 		try {
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/female-scream.wav")) {
-				femaleScream = new byte[fis.available()];
-				fis.read(femaleScream);
+			try (FileInputStream fis = new FileInputStream("resources/audio/game-sound.wav")) {
+				gameSound = new byte[fis.available()];
+				fis.read(gameSound);
 			}
 
 			try (FileInputStream fis = new FileInputStream("resources/audio/game_over.wav")) {
@@ -27,10 +24,6 @@ public class SoundProvider {
 				fis.read(gameOver);
 			}
 
-			try (FileInputStream fis = new FileInputStream("resources/audio/click-sound.wav")) {
-				clickSound = new byte[fis.available()];
-				fis.read(clickSound);
-			}
 
 			try (FileInputStream fis = new FileInputStream("resources/audio/menu-sound.wav")) {
 				menuSound = new byte[fis.available()];
@@ -46,9 +39,6 @@ public class SoundProvider {
 
 
 
-	public static byte[] getFemaleScream() {
-		return femaleScream;
-	}
 
 	public static byte[] getGameOver() {
 		return gameOver;
@@ -59,9 +49,6 @@ public class SoundProvider {
 		return menuSound;
 	}
 
-	public static byte[] getClickSound() {
-		return clickSound;
-	}
 
 
 	public static Map<String, byte[]> getSamples(final File dir) throws IOException {
@@ -77,8 +64,8 @@ public class SoundProvider {
 		return samples;
 	}
 
-	public static byte[] getVideoIntro() {
-		return videoIntro;
-	}
 
+	public static byte[] getGameSound() {
+		return gameSound;
+	}
 }
