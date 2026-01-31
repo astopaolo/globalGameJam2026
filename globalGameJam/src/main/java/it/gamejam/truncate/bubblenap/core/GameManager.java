@@ -164,7 +164,7 @@ public class GameManager {
 	}
 	
 	public void setMask(MaskType maskName) {
-		//System.out.println(maskName);
+		System.out.println(maskName);
 		this.currentMaskName = maskName;
 	}
 
