@@ -1,5 +1,7 @@
 package it.gamejam.truncate.bubblenap.ui;
 
+import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
+import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
@@ -46,7 +48,7 @@ public class MenuPanel extends JPanel {
 				if ((e.getX() >= EXIT_X) && (e.getX() <= (EXIT_X + ImageLoader.getImageExit().getWidth(null)))
 						&& (e.getY() >= EXIT_Y)
 						&& (e.getY() <= (EXIT_Y + ImageLoader.getImageExit().getHeight(null)))) {
-					//SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 3f);
+					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getClickSound(), 3f);
 
 					System.exit(0);
 				}
@@ -54,7 +56,7 @@ public class MenuPanel extends JPanel {
 						&& (e.getX() <= (PLAY_BUTTON_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= PLAY_BUTTON_Y)
 						&& (e.getY() <= (PLAY_BUTTON_Y + ImageLoader.getImagePlay().getHeight(null)))) {
-				//	SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
+					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getClickSound(), 3f);
 
 					frame.getBackgroundMusic().stop();
 					//frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
@@ -63,7 +65,7 @@ public class MenuPanel extends JPanel {
 				if ((e.getX() >= CREDITS_X) && (e.getX() <= (CREDITS_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= CREDITS_Y)
 						&& (e.getY() <= (CREDITS_Y + ImageLoader.getImagePlay().getHeight(null)))) {
-					//SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getBubbleMenuClick(), 0f);
+					SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getClickSound(), 3f);
 					frame.drawPanel(EnumPanel.CREDITS_MENU_PANEL);
 				}
 

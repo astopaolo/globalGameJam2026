@@ -11,7 +11,7 @@ public class SoundProvider {
 	private static byte[] gameOver;
 	private static byte[] videoIntro;
 	private static byte[] femaleScream;
-	private static byte[] bubleExplosion;
+	private static byte[] clickSound;
 
 
 	static {
@@ -27,6 +27,11 @@ public class SoundProvider {
 				fis.read(gameOver);
 			}
 
+			try (FileInputStream fis = new FileInputStream("resources/audio/click-sound.wav")) {
+				clickSound = new byte[fis.available()];
+				fis.read(clickSound);
+			}
+
 			try (FileInputStream fis = new FileInputStream("resources/audio/menu-sound.wav")) {
 				menuSound = new byte[fis.available()];
 				fis.read(menuSound);
@@ -40,9 +45,6 @@ public class SoundProvider {
 	}
 
 
-	public static byte[] getBubleExplosion() {
-		return bubleExplosion;
-	}
 
 	public static byte[] getFemaleScream() {
 		return femaleScream;
@@ -56,6 +58,11 @@ public class SoundProvider {
 	public static byte[] getMenuSound() {
 		return menuSound;
 	}
+
+	public static byte[] getClickSound() {
+		return clickSound;
+	}
+
 
 	public static Map<String, byte[]> getSamples(final File dir) throws IOException {
 		final Map<String, byte[]> samples = new HashMap<>();
