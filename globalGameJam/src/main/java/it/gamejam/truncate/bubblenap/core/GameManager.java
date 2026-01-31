@@ -3,9 +3,9 @@ package it.gamejam.truncate.bubblenap.core;
 import it.gamejam.truncate.bubblenap.core.enemies.AbstractEnemy;
 import it.gamejam.truncate.bubblenap.core.enemies.EnemyFactory;
 import it.gamejam.truncate.bubblenap.core.enemies.EnemySpawner;
-import it.gamejam.truncate.bubblenap.core.enemies.EnemyType;
-import it.gamejam.truncate.bubblenap.core.enemies.Werewolf;
 import it.gamejam.truncate.bubblenap.core.enums.MaskType;
+import it.gamejam.truncate.bubblenap.core.objects.StaticObjectFactory;
+import it.gamejam.truncate.bubblenap.core.objects.StaticObjectSpawner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -29,8 +29,10 @@ public class GameManager {
 
 	private List<MovingObject> toRemove = new ArrayList<>();
 	private DJLWebcamClassifier classifier;
-	private EnemyFactory factory;
-	private EnemySpawner spawner;
+	private EnemyFactory enemyFactory;
+	private EnemySpawner enemySpawner;
+	private StaticObjectSpawner staticObjectSpawner;
+	private StaticObjectFactory staticObjectFactory;
 	private MaskType currentMaskName;
 	private int firstBackgroundX = 0;
 	private int secondBackgroundX = 2690;
@@ -38,8 +40,10 @@ public class GameManager {
 	public GameManager() {
 		setMaskedPlayer(new MaskedPlayer( 100, 450));
 		try {
-			factory = new EnemyFactory();
-			spawner = new EnemySpawner(factory, 5000, 20);
+			enemyFactory = new EnemyFactory();
+			staticObjectFactory = new StaticObjectFactory();
+			staticObjectSpawner = new StaticObjectSpawner(staticObjectFactory, 7000);
+			enemySpawner = new EnemySpawner(enemyFactory, 5000, 20);
 			classifier= new DJLWebcamClassifier(this);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,8 +89,6 @@ public class GameManager {
 		this.player = player;
 	}
 
-	
-
 	public void setRepaintable(final Repaintable repaintable) {
 		this.repaintable = repaintable;
 	}
@@ -110,7 +112,8 @@ public class GameManager {
 						continue;
 					}
 					long elapsed = System.currentTimeMillis() - last;
-					spawner.update(GameManager.this);
+					staticObjectSpawner.update(GameManager.this);
+					enemySpawner.update(GameManager.this);
 					if(last-start > 5000) {
 						start = last;
 						player.accelerate();
@@ -135,7 +138,6 @@ public class GameManager {
 							toRemove.add(o);
 						}
 					});
-					
 
 					objects.removeAll(toRemove);
 					toRemove.clear();
