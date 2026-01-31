@@ -38,6 +38,10 @@ public abstract class AbstractEnemy extends MovingObject {
   }
   @Override
   public Image getTransformedImage(int index) {
-	  return scaledInstance[index];
+    return scaledInstance[index];
+  }
+
+  public int getImageCount() {
+    return scaledInstance.length;
   }
 }

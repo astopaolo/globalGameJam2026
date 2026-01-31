@@ -45,7 +45,12 @@ public class MaskedPlayer {
 	public void setY(int y) {
 		this.y = y;
 	}
+
 	public Image getScaledImage(int index) {
 		return scaledImage[index];
+	}
+
+	public int getImageCount() {
+		return scaledImage.length;
 	}
 }
