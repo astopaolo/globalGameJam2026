@@ -27,11 +27,11 @@ public interface EnemyCreator {
     );
 
     register(EnemyType.VAMPIRE, (x, y) ->
-        new Vampire(x, y, 140, 220, DX,1.0)
+        new Vampire(x, y-5, 140, 220, DX,1.0)
     );
 
     register(EnemyType.ZOMBIE, (x, y) ->
-        new Zombie(x, y, 120, 220, DX,1.0)
+        new Zombie(x, y+3, 120, 220, DX,1.0)
     );
 
     register(EnemyType.MUMMY, (x, y) ->
@@ -51,7 +51,7 @@ public interface EnemyCreator {
   public void spawn(EnemyType type, Consumer<MovingObject> consumer) {
     int x = 1500;
     int y = 340;
-    AbstractEnemy enemy = create(type, x, y);
+    AbstractEnemy enemy = create(type, x, y+(int)(Math.random()*20-10));
     consumer.accept(enemy);
   }
 }
