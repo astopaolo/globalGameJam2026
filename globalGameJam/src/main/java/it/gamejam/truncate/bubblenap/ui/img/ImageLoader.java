@@ -64,6 +64,9 @@ public class ImageLoader {
 	private static Image saverioMask;
 	private static Image saverioNoMask;
 
+	private static Image anxietyFrame;
+	private static Image webcamFrame;
+
 	private static List<Image> introVideoFrames;
 
 	private static List<Image> gameOverVideoFrames;
@@ -103,6 +106,9 @@ public class ImageLoader {
 			bloodCurtain = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/blood_curtain.png"));
 			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
 			background_blur = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
+
+			anxietyFrame = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/anxietyFrame.png"));
+			webcamFrame = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/webcamFrame.png"));
 
 			credits = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Credits.png"));
 
@@ -318,4 +324,11 @@ public class ImageLoader {
 		return mummyHead;
 	}
 
+	public static Image getAnxietyFrame() {
+		return anxietyFrame;
+	}
+	
+	public static Image getWebcamFrame() {
+		return webcamFrame;
+	}
 }

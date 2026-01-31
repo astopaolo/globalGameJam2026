@@ -2,6 +2,8 @@
 package it.gamejam.truncate.bubblenap.ui;
 
 import com.github.sarxos.webcam.WebcamPanel;
+import com.github.sarxos.webcam.WebcamPanel.DrawMode;
+
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
@@ -78,7 +80,8 @@ public class MainFrame extends JFrame {
 		pack();
 		setLocationRelativeTo(null);
 		WebcamPanel webcam = new WebcamPanel(gameManager.getClassifier().getWebcam()) ;
-		webcam.setPreferredSize(new Dimension(320,240));
+		webcam.setPreferredSize(new Dimension(240,180));
+		webcam.setDrawMode(DrawMode.FIT);
 		dialog = new JDialog(this);
 		dialog.setUndecorated(true);
 //        dialog.setLocationRelativeTo(button);

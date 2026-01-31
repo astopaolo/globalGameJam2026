@@ -120,7 +120,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		int anxX = 600;
 		int anxY = 25;
 		int anxW = 200;
-		int anxH = 45;
+		int anxH = 15;
 		g.fillRect(anxX -2, anxY -2 , anxW + 4, anxH + 4);
 		
 		g.setColor(Color.WHITE);
@@ -128,6 +128,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		g.setColor(new Color(192,41,255));
 //		g.setColor(Color.GREEN);
 		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100)+(int)(Math.random()*2), anxH);
+		g.drawImage(ImageLoader.getAnxietyFrame(), anxX-14, anxY-5,anxW+30,anxH+10, null);
 		
 		
 	}
