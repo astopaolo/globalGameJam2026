@@ -26,6 +26,6 @@ public class AbstractStaticObject extends MovingObject {
   }
 
   private void resizeImage() {
-    scaledInstance = image.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+    scaledInstance = image.getScaledInstance(this.width, this.height, Image.SCALE_SMOOTH);
   }
 }

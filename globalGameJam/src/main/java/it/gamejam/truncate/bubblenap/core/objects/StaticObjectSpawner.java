@@ -12,9 +12,9 @@ public class StaticObjectSpawner {
   private final Random random = new Random();
   private long lastSpawn;
 
-  public StaticObjectSpawner(StaticObjectFactory factory, long spawnIntervalMs) {
+  public StaticObjectSpawner(StaticObjectFactory factory) {
     this.factory = factory;
-    this.spawnIntervalMs = spawnIntervalMs;
+    this.spawnIntervalMs = 4000L;
     this.staticObjectTypes = Arrays.asList(StaticObjectType.values());
   }
 
@@ -23,6 +23,7 @@ public class StaticObjectSpawner {
     if (now - lastSpawn < spawnIntervalMs) return;
     StaticObjectType type = staticObjectTypes.get(random.nextInt(staticObjectTypes.size()));
     factory.spawn(type, gameManager::addMovingObject);
+    spawnIntervalMs = random.nextInt(3, 6) * 1000L;
     lastSpawn = now;
   }
 }
