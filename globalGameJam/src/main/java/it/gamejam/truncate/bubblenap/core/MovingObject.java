@@ -43,7 +43,7 @@ public abstract class MovingObject {
 		return height;
 	}
 
-	public Image getTransformedImage() {
+	public Image getTransformedImage(int index) {
 		return scaledInstance;
 	}
 

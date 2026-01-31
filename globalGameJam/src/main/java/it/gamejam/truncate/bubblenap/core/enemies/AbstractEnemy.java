@@ -31,4 +31,8 @@ public abstract class AbstractEnemy extends MovingObject {
       //System.out.println("Enemy tricked!");
     }
   }
+  @Override
+  public Image getTransformedImage(int index) {
+	return super.getTransformedImage(index);
+  }
 }
