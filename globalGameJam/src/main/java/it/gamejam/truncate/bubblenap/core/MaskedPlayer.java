@@ -9,8 +9,8 @@ public class MaskedPlayer {
 	private int x;
 	private int y;
 	private double speed;
-	private Image image;  
-	private Image scaledImage;  
+	private Image[] image;  
+	private Image[] scaledImage;  
 
 	public MaskedPlayer( int x, int y) {
 		super();
@@ -18,7 +18,9 @@ public class MaskedPlayer {
 		this.y = y;
 		speed=0.2;
 		image=ImageLoader.getMummy();
-		scaledImage = image.getScaledInstance(120, 220, Image.SCALE_SMOOTH);
+		for(int i=0;i<image.length;i++) {
+			scaledImage[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
+		}
 	}
 
 	public double getSpeed() {
@@ -42,7 +44,7 @@ public class MaskedPlayer {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public Image getScaledImage() {
-		return scaledImage;
+	public Image getScaledImage(int index) {
+		return scaledImage[index];
 	}
 }

@@ -9,17 +9,21 @@ import java.util.Objects;
 public abstract class AbstractEnemy extends MovingObject {
 
   protected MaskType maskType;
+  protected Image[] image;
+  protected Image[] scaledInstance;
 
 
-  public AbstractEnemy(int x, int y, int width, int height, double dx, double dy, MaskType maskType, Image image) {
-    super(x, y, width, height, dx, dy, image);
+  public AbstractEnemy(int x, int y, int width, int height, double dx, double dy, MaskType maskType, Image[] image) {
+    super(x, y, width, height, dx, dy);
     this.maskType = maskType;
     this.image = image;
     resizeImage();
   }
 
-  public void resizeImage() {
-	  scaledInstance = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+  private void resizeImage() {
+	  for(int i=0;i<image.length;i++) {
+		  scaledInstance[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
+	  }
   }
 
   @Override
@@ -33,6 +37,6 @@ public abstract class AbstractEnemy extends MovingObject {
   }
   @Override
   public Image getTransformedImage(int index) {
-	return super.getTransformedImage(index);
+	  return scaledInstance[index];
   }
 }

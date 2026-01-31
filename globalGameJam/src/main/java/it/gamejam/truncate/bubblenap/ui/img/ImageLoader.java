@@ -25,10 +25,10 @@ public class ImageLoader {
 	private static Image backPressed;
 
 
-	private static Image werewolf;
-	private static Image zombie;
-	private static Image vampire;
-	private static Image mummy;
+	private static Image[] werewolf;
+	private static Image[] zombie;
+	private static Image[] vampire;
+	private static Image[] mummy;
 
 	private static Image gameScreen;
 	private static Image scoreBackground;
@@ -57,14 +57,23 @@ public class ImageLoader {
 
 	static {
 		try {
-
-			zombie = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie.png"));
-
-			werewolf = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf.png"));
-
-			vampire = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
-
-			mummy = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
+			zombie=new Image[8];
+			werewolf=new Image[8];
+			vampire=new Image[8];
+			mummy=new Image[8];
+			for(int i=1;i<=8;i++) {
+				zombie[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie/"+i+".png"));
+				werewolf[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf/"+i+".png"));
+				vampire[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire/"+i+".png"));
+				mummy[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy/"+i+".png"));
+			}
+//			zombie = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie.png"));
+//
+//			werewolf = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf.png"));
+//
+//			vampire = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
+//
+//			mummy = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
 
 			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
 			background_blur = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
@@ -174,19 +183,19 @@ public class ImageLoader {
 		return introVideoFrames;
 	}
 
-	public static Image getWerewolf() {
+	public static Image[] getWerewolf() {
 		return werewolf;
 	}
 
-	public static Image getZombie() {
+	public static Image[] getZombie() {
 		return zombie;
 	}
 
-	public static Image getVampire() {
+	public static Image[] getVampire() {
 		return vampire;
 	}
 
-	public static Image getMummy() {
+	public static Image[] getMummy() {
 		return mummy;
 	}
 

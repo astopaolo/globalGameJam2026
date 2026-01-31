@@ -10,18 +10,16 @@ public abstract class MovingObject {
 	protected int height;
 	protected double dx;
 	protected double dy;
-	protected Image image;
-	protected Image scaledInstance;
+	
 
 
-	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy, final Image image) {
+	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.dx = dx;
 		this.dy = dy;
-		this.image = image;
 	}
 
 	protected abstract void applyEffect(GameManager gameManager);
@@ -43,9 +41,7 @@ public abstract class MovingObject {
 		return height;
 	}
 
-	public Image getTransformedImage(int index) {
-		return scaledInstance;
-	}
+	public abstract Image getTransformedImage(int index);
 
 	public int getWidth() {
 		return width;
@@ -69,12 +65,6 @@ public abstract class MovingObject {
 
 	public void setHeight(final int height) {
 		this.height = height;
-	}
-
-	public void setImage(final Image image) {
-		this.image = image;
-		this.width = image.getWidth(null);
-		this.height = image.getHeight(null);
 	}
 
 	public void setWidth(final int width) {
