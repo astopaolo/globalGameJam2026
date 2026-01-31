@@ -1,8 +1,11 @@
 package it.gamejam.truncate.bubblenap.core;
 
+import it.gamejam.truncate.bubblenap.core.enums.MaskType;
 import java.awt.Image;
 
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+import java.util.EnumMap;
+import java.util.Map;
 
 public class MaskedPlayer {
 
@@ -10,37 +13,40 @@ public class MaskedPlayer {
 	private int y;
 	private int anxiety;
 	private double speed;
-	private Image[] image;  
-	private Image[] scaledImage;  
+	private final Map<MaskType, Image[]> imagesMap;
+	private Image[] currentMaskScaledImage;
+	private MaskType currentMask = MaskType.BASE;
 
 	public MaskedPlayer( int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;
 		speed=0.2;
-		image=ImageLoader.getMummy();
-		scaledImage=new Image[image.length];
-		for(int i=0;i<image.length;i++) {
-			scaledImage[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
-		}
+		imagesMap = new EnumMap<>(MaskType.class);
+		imagesMap.put(MaskType.MUMMY, ImageLoader.getPlayerMummy());
+		imagesMap.put(MaskType.VAMPIRE, ImageLoader.getPlayerVampire());
+		imagesMap.put(MaskType.WEREWOLF, ImageLoader.getPlayerWerewolf());
+		imagesMap.put(MaskType.ZOMBIE, ImageLoader.getPlayerZombie());
+		imagesMap.put(MaskType.BASE, ImageLoader.getPlayerBase());
+		setMask(currentMask);
 	}
 
 	public double getSpeed() {
 		return speed;
 	}
-	
+
 	public int getAnxiety() {
 		return anxiety;
 	}
-	
+
 	public void increaseAnxiety() {
 		anxiety+=10;
-	}	
+	}
 
 	public void decreaseAnxiety() {
 		anxiety-=5;
-	}	
-	
+	}
+
 	public void accelerate() {
 		speed*=1.1;
 	}
@@ -60,11 +66,22 @@ public class MaskedPlayer {
 		this.y = y;
 	}
 
+	public void setMask(MaskType mask) {
+		this.currentMask = mask;
+		this.currentMaskScaledImage = imagesMap.get(mask);
+	}
+
 	public Image getScaledImage(int index) {
-		return scaledImage[index];
+		return currentMaskScaledImage[index].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
 	}
 
 	public int getImageCount() {
-		return scaledImage.length;
+		return currentMaskScaledImage.length - 1;
 	}
+
+	public Image getMaskScaledImage(int index) {
+		return currentMaskScaledImage[index];
+	}
+
+	public MaskType getMask() { return currentMask; }
 }

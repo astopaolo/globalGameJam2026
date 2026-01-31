@@ -98,8 +98,9 @@ public class DJLWebcamClassifier extends JFrame {
 						// Esegue la classificazione
 						Classifications result = predictor.predict(img);
 						Classifications.Classification best = result.best();
-
-						gameManager.setMask(MaskType.valueOf(best.getClassName().split(" ")[1].toUpperCase()));
+						MaskType detectedMask = MaskType.valueOf(best.getClassName().split(" ")[1].toUpperCase());
+						gameManager.getMaskedPlayer().setMask(detectedMask);
+						gameManager.setMask(detectedMask);
 						// Aggiorna l'etichetta
 //						String text = String.format("%s (%.2f%%)", best.getClassName(), best.getProbability() * 100);
 
