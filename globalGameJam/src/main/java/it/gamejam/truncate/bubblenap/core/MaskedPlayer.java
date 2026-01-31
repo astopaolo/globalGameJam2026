@@ -14,6 +14,7 @@ public class MaskedPlayer {
 	private int anxiety;
 	private double speed;
 	private final Map<MaskType, Image[]> imagesMap;
+	private final Map<MaskType, Image> iconsMap;
 	private Image[] currentMaskScaledImage;
 	private MaskType currentMask = MaskType.BASE;
 
@@ -23,11 +24,19 @@ public class MaskedPlayer {
 		this.y = y;
 		speed=0.2;
 		imagesMap = new EnumMap<>(MaskType.class);
+		iconsMap = new EnumMap<>(MaskType.class);
 		imagesMap.put(MaskType.MUMMY, ImageLoader.getPlayerMummy());
 		imagesMap.put(MaskType.VAMPIRE, ImageLoader.getPlayerVampire());
 		imagesMap.put(MaskType.WEREWOLF, ImageLoader.getPlayerWerewolf());
 		imagesMap.put(MaskType.ZOMBIE, ImageLoader.getPlayerZombie());
 		imagesMap.put(MaskType.BASE, ImageLoader.getPlayerBase());
+	
+		iconsMap.put(MaskType.MUMMY, ImageLoader.getMummyHead());
+		iconsMap.put(MaskType.VAMPIRE, ImageLoader.getVampireHead());
+		iconsMap.put(MaskType.WEREWOLF, ImageLoader.getWerewolfHead());
+		iconsMap.put(MaskType.ZOMBIE, ImageLoader.getZombieHead());
+		iconsMap.put(MaskType.BASE, ImageLoader.getLuigiNoMask());
+		
 		setMask(currentMask);
 	}
 
@@ -69,6 +78,9 @@ public class MaskedPlayer {
 	public void setMask(MaskType mask) {
 		this.currentMask = mask;
 		this.currentMaskScaledImage = imagesMap.get(mask);
+	}
+	public Image getCurrentHead() {
+		return iconsMap.get(currentMask);
 	}
 
 	public Image getScaledImage(int index) {

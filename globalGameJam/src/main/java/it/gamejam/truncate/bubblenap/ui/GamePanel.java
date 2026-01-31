@@ -108,14 +108,16 @@ public class GamePanel extends JPanel implements Repaintable {
 //        g2d.fillRect(0, 0, getWidth(),getHeight());
 		g2d.drawImage(ImageLoader.getBloodCurtain(),  0, 0,null);
 		
-		
 		g2d.setComposite(composite);
+		
+		g.drawImage(player.getCurrentHead(), 10, 10,90,120, null);
+		
 		g.setColor(Color.WHITE);
 		g.setFont(font);
-		g.drawString("Points: " + gameManager.getPoints(), 45, 70);
+		g.drawString("Points: " + gameManager.getPoints(), 245, 70);
 
 		g.setColor(Color.BLACK);
-		int anxX = 400;
+		int anxX = 600;
 		int anxY = 25;
 		int anxW = 200;
 		int anxH = 45;
