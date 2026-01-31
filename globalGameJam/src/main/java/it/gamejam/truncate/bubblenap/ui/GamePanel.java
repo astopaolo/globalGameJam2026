@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.RescaleOp;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -51,8 +52,6 @@ public class GamePanel extends JPanel implements Repaintable {
 	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		double scale= 0.99+(Math.random()*0.02);
-		g2d.scale(scale, scale);
 //		g.setClip(new Polygon(new int[] {0,getWidth()-325,getWidth()-325,getWidth(),getWidth(),0}, new int[] {0,0,245,245,getHeight(),getHeight()},6 ));
 
         // Enable anti-aliasing for text
@@ -112,7 +111,14 @@ public class GamePanel extends JPanel implements Repaintable {
 		g.setColor(Color.WHITE);
 		g.fillRect(anxX, anxY, anxW, anxH);
 		g.setColor(Color.red);
-		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100), anxH);
+		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100)+(int)(Math.random()*2), anxH);
+		
+		int rule = AlphaComposite.SRC_OVER;
+        Composite comp = AlphaComposite.getInstance(rule , player.getAnxiety()/300f );
+        g2d.setComposite(comp );
+        g2d.setColor(Color.BLUE);
+        g2d.fillRect(0, 0, getWidth(),getHeight());
+//		g2d.drawImage(ImageLoader.getBloodCurtain(),  0, 0,null);
 	}
 
 	public void startGame() {

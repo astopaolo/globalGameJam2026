@@ -2,6 +2,7 @@ package it.gamejam.truncate.bubblenap.ui.img;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ImageLoader {
 	private static Image[] vampire;
 	private static Image[] mummy;
 
-	private static Image bloodCurtain;
+	private static BufferedImage bloodCurtain;
 	private static Image gameScreen;
 	private static Image scoreBackground;
 
@@ -160,7 +161,7 @@ public class ImageLoader {
 		return creditsPressed;
 	}
 
-	public static Image getBloodCurtain() {
+	public static BufferedImage getBloodCurtain() {
 		return bloodCurtain;
 	}
 	

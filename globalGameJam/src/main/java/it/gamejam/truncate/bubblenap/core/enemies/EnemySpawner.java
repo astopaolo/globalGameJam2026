@@ -16,7 +16,7 @@ public class EnemySpawner {
   private long lastSpawn;
 
   public EnemySpawner(EnemyFactory factory) {
-	  this(factory,3000,20);
+	  this(factory,2000,20);
   }
   
   public EnemySpawner(EnemyFactory factory, long spawnIntervalMs, int maxEnemies) {
@@ -34,8 +34,8 @@ public class EnemySpawner {
       System.out.println("Max enemies reached: " + gameManager.getActiveEnemyCount());
       return;
     }
-    long bound = spawnIntervalMs/2;
-    long delta =random.nextLong(bound)-bound/2;
+    long bound = spawnIntervalMs;
+    long delta =random.nextLong(bound);
     nextSpawnIntervalMs=spawnIntervalMs+delta;
     System.out.println("nextSpawnIntervalMs: "+nextSpawnIntervalMs);
     EnemyType type = enemyTypes.get(random.nextInt(enemyTypes.size()));
