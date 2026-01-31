@@ -30,7 +30,6 @@ public class ImageLoader {
 	private static Image vampire;
 	private static Image mummy;
 
-	private static Image gameover;
 	private static Image gameScreen;
 	private static Image scoreBackground;
 
@@ -66,10 +65,7 @@ public class ImageLoader {
 			vampire = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
 
 			mummy = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
-//
-//			creditsBed = ImageIO
-//					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
-//
+
 			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
 			background_blur = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
 
@@ -111,12 +107,10 @@ public class ImageLoader {
 
 			saverioMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
 			saverioNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
-//
 //			introVideoFrames = getVideoFrames("img/video/intro/", 100);
 //			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
 
 		} catch (final IOException e) {
-
 			e.printStackTrace();
 		}
 	}
