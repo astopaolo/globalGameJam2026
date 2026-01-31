@@ -51,6 +51,8 @@ public class GamePanel extends JPanel implements Repaintable {
 	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		double scale= 0.99+(Math.random()*0.02);
+		g2d.scale(scale, scale);
 //		g.setClip(new Polygon(new int[] {0,getWidth()-325,getWidth()-325,getWidth(),getWidth(),0}, new int[] {0,0,245,245,getHeight(),getHeight()},6 ));
 
         // Enable anti-aliasing for text
@@ -89,16 +91,28 @@ public class GamePanel extends JPanel implements Repaintable {
 
 		gameManager.getObjects().forEach(o -> {
 			if(o instanceof AbstractEnemy){
-				g.drawImage(o.getTransformedImage((int)((System.currentTimeMillis() / 100) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
+				g.drawImage(o.getTransformedImage((int)((System.currentTimeMillis() / 150) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
 			}else{
 				g.drawImage(o.getTransformedImage(0), o.getX(), o.getY(), null);
 			}
 		});
 
-		g.drawImage(player.getScaledImage((int)((System.currentTimeMillis() / 100) % player.getImageCount())), player.getX(), player.getY(), null);
+		g.drawImage(player.getScaledImage((int)((System.currentTimeMillis() / 200) % player.getImageCount())), player.getX(), player.getY(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(font);
 		g.drawString("Points: " + gameManager.getPoints(), 45, 70);
+
+		g.setColor(Color.BLACK);
+		int anxX = 400;
+		int anxY = 25;
+		int anxW = 200;
+		int anxH = 45;
+		g.fillRect(anxX -2, anxY -2 , anxW + 4, anxH + 4);
+		
+		g.setColor(Color.WHITE);
+		g.fillRect(anxX, anxY, anxW, anxH);
+		g.setColor(Color.red);
+		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100), anxH);
 	}
 
 	public void startGame() {

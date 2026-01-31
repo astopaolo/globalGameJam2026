@@ -23,7 +23,7 @@ public interface EnemyCreator {
 
   private void registerDefaults() {
     register(EnemyType.WEREWOLF, (x, y) ->
-        new Werewolf(x, y, 140, 220, DX,1.0)
+        new Werewolf(x, y+20, 140, 220, DX,1.0)
     );
 
     register(EnemyType.VAMPIRE, (x, y) ->

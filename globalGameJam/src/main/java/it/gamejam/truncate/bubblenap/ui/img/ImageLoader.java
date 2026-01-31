@@ -30,6 +30,7 @@ public class ImageLoader {
 	private static Image[] vampire;
 	private static Image[] mummy;
 
+	private static Image bloodCurtain;
 	private static Image gameScreen;
 	private static Image scoreBackground;
 
@@ -75,6 +76,7 @@ public class ImageLoader {
 //
 //			mummy = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
 
+			bloodCurtain = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/blood_curtain.png"));
 			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
 			background_blur = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
 
@@ -158,6 +160,10 @@ public class ImageLoader {
 		return creditsPressed;
 	}
 
+	public static Image getBloodCurtain() {
+		return bloodCurtain;
+	}
+	
 	public static Image getImageExit() {
 		return exit;
 	}

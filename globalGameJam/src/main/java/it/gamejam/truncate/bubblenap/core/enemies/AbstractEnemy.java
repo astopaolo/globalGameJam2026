@@ -11,6 +11,7 @@ public abstract class AbstractEnemy extends MovingObject {
   protected MaskType maskType;
   protected Image[] image;
   protected Image[] scaledInstance;
+  protected boolean active = true;
 
 
   public AbstractEnemy(int x, int y, int width, int height, double dx, double dy, MaskType maskType, Image[] image) {
@@ -29,12 +30,14 @@ public abstract class AbstractEnemy extends MovingObject {
 
   @Override
   protected void applyEffect(GameManager gameManager) {
-	  if(!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
-//      gameManager.gameOver();
-		  System.err.println("gameover");
-    }else{
-      //System.out.println("Enemy tricked!");
-    }
+	  if(active && !Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
+		  gameManager.getMaskedPlayer().increaseAnxiety();
+		  System.err.println("anxiety: "+gameManager.getMaskedPlayer().getAnxiety());
+		  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
+			  gameManager.gameOver();
+		  }
+		  active = false;
+	  }
   }
   @Override
   public Image getTransformedImage(int index) {

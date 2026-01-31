@@ -43,7 +43,7 @@ public class GameManager {
 			enemyFactory = new EnemyFactory();
 			staticObjectFactory = new StaticObjectFactory();
 			staticObjectSpawner = new StaticObjectSpawner(staticObjectFactory, 7000);
-			enemySpawner = new EnemySpawner(enemyFactory, 5000, 20);
+			enemySpawner = new EnemySpawner(enemyFactory);
 			classifier= new DJLWebcamClassifier(this);
 		} catch (Exception e) {
 			e.printStackTrace();

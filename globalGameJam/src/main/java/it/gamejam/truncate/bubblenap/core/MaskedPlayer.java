@@ -8,6 +8,7 @@ public class MaskedPlayer {
 
 	private int x;
 	private int y;
+	private int anxiety;
 	private double speed;
 	private Image[] image;  
 	private Image[] scaledImage;  
@@ -27,6 +28,19 @@ public class MaskedPlayer {
 	public double getSpeed() {
 		return speed;
 	}
+	
+	public int getAnxiety() {
+		return anxiety;
+	}
+	
+	public void increaseAnxiety() {
+		anxiety+=10;
+	}	
+
+	public void decreaseAnxiety() {
+		anxiety-=5;
+	}	
+	
 	public void accelerate() {
 		speed*=1.1;
 	}
