@@ -25,7 +25,7 @@ public class MaskedPlayer {
 		return speed;
 	}
 	public void accelerate() {
-		speed+=0.1;
+		speed*=1.1;
 	}
 	public int getX() {
 		return x;

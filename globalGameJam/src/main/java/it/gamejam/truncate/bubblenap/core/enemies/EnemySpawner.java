@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class EnemySpawner {
   private final EnemyFactory factory;
-  private final long spawnIntervalMs;
+  private  long spawnIntervalMs;
   private final int maxEnemies;
   private final List<EnemyType> enemyTypes;
   private final Random random = new Random();
@@ -30,10 +30,11 @@ public class EnemySpawner {
       return;
     }
 
-    //EnemyType type = enemyTypes.get(random.nextInt(enemyTypes.size()));
-    EnemyType type = EnemyType.ZOMBIE;
+    EnemyType type = enemyTypes.get(random.nextInt(enemyTypes.size()));
+    //EnemyType type = EnemyType.ZOMBIE;
     factory.spawn(type, gameManager::addMovingObject);
     lastSpawn = now;
+    spawnIntervalMs*=0.95;
   }
 
   public void reduceSpawnInterval(double factor) {

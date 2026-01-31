@@ -39,7 +39,7 @@ public class GameManager {
 		setMaskedPlayer(new MaskedPlayer( 100, 450));
 		try {
 			factory = new EnemyFactory();
-			spawner = new EnemySpawner(factory, 5000, 2);
+			spawner = new EnemySpawner(factory, 5000, 20);
 			classifier= new DJLWebcamClassifier(this);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,6 +103,7 @@ public class GameManager {
 			@Override
 			public void run() {
 				long last = -1;
+				long start = System.currentTimeMillis();
 				while (running.get()) {
 					if (last == -1) {
 						last = System.currentTimeMillis();
@@ -110,16 +111,19 @@ public class GameManager {
 					}
 					long elapsed = System.currentTimeMillis() - last;
 					spawner.update(GameManager.this);
-					
+					if(last-start > 5000) {
+						start = last;
+						player.accelerate();
+					}
 					int d = (int) (player.getSpeed()*elapsed);
 					firstBackgroundX-=d;
 					secondBackgroundX-=d;
 
 					if (firstBackgroundX <= -2690) {
-						firstBackgroundX = 2690;
+						firstBackgroundX = secondBackgroundX + 2690;
 					}
 					if (secondBackgroundX <= -2690 ) {
-						secondBackgroundX = 2690;
+						secondBackgroundX = firstBackgroundX + 2690;
 					}
 
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));

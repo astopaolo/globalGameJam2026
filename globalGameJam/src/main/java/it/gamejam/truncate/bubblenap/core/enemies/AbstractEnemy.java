@@ -28,7 +28,7 @@ public abstract class AbstractEnemy extends MovingObject {
 //      gameManager.gameOver();
 		  System.err.println("gameover");
     }else{
-      System.out.println("Enemy tricked!");
+      //System.out.println("Enemy tricked!");
     }
   }
 }
