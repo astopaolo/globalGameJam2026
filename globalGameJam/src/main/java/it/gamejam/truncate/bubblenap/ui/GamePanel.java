@@ -88,6 +88,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		gameManager.getObjects().forEach(o -> {
 			g.drawImage(o.getTransformedImage(), o.getX(), o.getY(), null);
 		});
+		g.drawImage(gameManager.getMaskedPlayer().getScaledImage(),gameManager.getMaskedPlayer().getX(),gameManager.getMaskedPlayer().getY(),null);
 		g.setColor(Color.WHITE);
 		g.setFont(font);
 		g.drawString("Points: " + gameManager.getPoints(), 45, 70);

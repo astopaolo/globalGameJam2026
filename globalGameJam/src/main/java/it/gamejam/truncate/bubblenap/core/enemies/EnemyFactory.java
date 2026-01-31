@@ -9,7 +9,9 @@ import java.util.function.Consumer;
 
 public class EnemyFactory {
 
-  public interface EnemyCreator {
+  private static final double DX = 30.0;
+
+public interface EnemyCreator {
     AbstractEnemy create(int x, int y);
   }
 
@@ -21,19 +23,19 @@ public class EnemyFactory {
 
   private void registerDefaults() {
     register(EnemyType.WEREWOLF, (x, y) ->
-        new Werewolf(x, y, 100, 100, 1.0,1.0, MaskType.saverio)
+        new Werewolf(x, y, 100, 100, DX,1.0, MaskType.saverio)
     );
 
     register(EnemyType.VAMPIRE, (x, y) ->
-        new Vampire(x, y, 100, 100, 1.0,1.0, MaskType.saverio)
+        new Vampire(x, y, 100, 100, DX,1.0, MaskType.saverio)
     );
 
     register(EnemyType.ZOMBIE, (x, y) ->
-        new Zombie(x, y, 120, 220, -10.0,-1.0, MaskType.saverio)
+        new Zombie(x, y, 120, 220, DX,1.0, MaskType.saverio)
     );
 
     register(EnemyType.MUMMY, (x, y) ->
-        new Mummy(x, y, 100, 100, 1.0,1.0, MaskType.saverio)
+        new Mummy(x, y, 100, 100, DX,1.0, MaskType.saverio)
     );
   }
 

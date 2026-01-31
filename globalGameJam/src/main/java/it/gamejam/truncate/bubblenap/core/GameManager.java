@@ -35,7 +35,7 @@ public class GameManager {
 	private int secondBackgroundX = 2690;
 
 	public GameManager() {
-		setMaskedPlayer(new MaskedPlayer( 612, 365));
+		setMaskedPlayer(new MaskedPlayer( 100, 450));
 		try {
 			factory = new EnemyFactory();
 			spawner = new EnemySpawner(factory, 5000, 2);
