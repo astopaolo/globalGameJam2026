@@ -21,8 +21,8 @@ public class StaticObjectFactory {
 
   private void registerDefaults() {
     register(StaticObjectType.GARBAGE, (x, y) ->{
-          // y = ThreadLocalRandom.current().nextInt(500, 800);
-          return new Garbage(x, y, 140, 220, DX,1.0);
+          y += (int)(Math.random() * 120 - 60);
+          return new Garbage(x, y, 70, 70, DX,1.0);
     });
   }
 
@@ -37,8 +37,8 @@ public class StaticObjectFactory {
 
   public void spawn(StaticObjectType type, Consumer<MovingObject> consumer) {
     int x = 1500;
-    int y = 700;
-    MovingObject obj = create(type, x, y);
+    int y = 600;
+    MovingObject obj = create(type, x,y);
     consumer.accept(obj);
   }
 }
