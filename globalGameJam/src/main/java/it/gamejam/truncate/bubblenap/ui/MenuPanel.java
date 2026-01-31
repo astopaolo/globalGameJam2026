@@ -14,22 +14,21 @@ import java.io.IOException;
 
 public class MenuPanel extends JPanel {
 
-	private static final Color C_WHITE = new Color(255, 255, 255, 241);
-	private static final long serialVersionUID = -5148674646680024173L;
+	private static final Color C_WHITE = new Color(155, 5, 23, 255);
 	private static Image playButtonImage = ImageLoader.getImagePlay();
 	private static Image exitButtonImage = ImageLoader.getImageExit();
 	private static Image creditsButtonImage = ImageLoader.getImageCredits();
 
-	private static Image background = ImageLoader.getImageBackground();
+	private static final Image background = ImageLoader.getImageBackground();
 
-	private static int PLAY_BUTTON_X = 850;
-	private static int PLAY_BUTTON_Y = 270;
+	private static final int PLAY_BUTTON_X = 850;
+	private static final int PLAY_BUTTON_Y = 270;
 
-	private static int CREDITS_X = PLAY_BUTTON_X ;
-	private static int CREDITS_Y = PLAY_BUTTON_Y + 150;
+	private static final int CREDITS_X = PLAY_BUTTON_X ;
+	private static final int CREDITS_Y = PLAY_BUTTON_Y + 150;
 
-	private static int EXIT_X = PLAY_BUTTON_X ;
-	private static int EXIT_Y = PLAY_BUTTON_Y + 300;
+	private static final int EXIT_X = PLAY_BUTTON_X ;
+	private static final int EXIT_Y = PLAY_BUTTON_Y + 300;
 
 	MainFrame frame;
 	private Font titleFont;
@@ -43,7 +42,7 @@ public class MenuPanel extends JPanel {
 		requestFocus();
 
 		addMouseListener(new MouseAdapter() {
-			@SuppressWarnings("static-access")
+
 			@Override
 			public void mouseReleased(final MouseEvent e) {
 				if ((e.getX() >= EXIT_X) && (e.getX() <= (EXIT_X + ImageLoader.getImageExit().getWidth(null)))
@@ -144,7 +143,7 @@ public class MenuPanel extends JPanel {
 		g.setColor(C_WHITE);
 		g.setFont(titleFont);
 
-		g.drawString("Mask or Die", 210, 180);
+		g.drawString("Mask or Die", 270, 145);
 
 	}
 
@@ -153,7 +152,7 @@ public class MenuPanel extends JPanel {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
-				titleFont = new Font("Creepster", Font.BOLD, 180);
+				titleFont = new Font("Creepster", Font.BOLD, 160);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}
