@@ -27,8 +27,8 @@ public abstract class MovingObject {
 	protected abstract void applyEffect(GameManager gameManager);
 
 
-	public boolean collide(final MaskedPlayer bubble) {
-		return bubble.getX()>=x-dx && bubble.getX()<=x+dx;
+	public boolean collide(final MaskedPlayer player) {
+		return player.getX()>=x-dx && player.getX()<=x+dx;
 	}
 
 	public double getDx() {

@@ -1,16 +1,24 @@
 package it.gamejam.truncate.bubblenap.core;
 
+import java.awt.Image;
+
+import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
 public class MaskedPlayer {
 
 	private int x;
 	private int y;
 	private double speed;
+	private Image image;  
+	private Image scaledImage;  
 
 	public MaskedPlayer( int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;
 		speed=0.2;
+		image=ImageLoader.getMummy();
+		scaledImage = image.getScaledInstance(120, 220, Image.SCALE_SMOOTH);
 	}
 
 	public double getSpeed() {
@@ -34,5 +42,7 @@ public class MaskedPlayer {
 	public void setY(int y) {
 		this.y = y;
 	}
-
+	public Image getScaledImage() {
+		return scaledImage;
+	}
 }

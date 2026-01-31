@@ -11,8 +11,5 @@ public class Zombie extends AbstractEnemy{
     super(x, y, width, height, dx, dy, maskType, ImageLoader.getZombie());
   }
 
-  @Override
-  protected void applyEffect(GameManager gameManager) {
-    //gameManager.gameOver();
-  }
+  
 }

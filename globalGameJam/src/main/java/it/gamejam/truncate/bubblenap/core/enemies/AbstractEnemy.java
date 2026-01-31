@@ -1,5 +1,6 @@
 package it.gamejam.truncate.bubblenap.core.enemies;
 
+import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.core.MovingObject;
 import it.gamejam.truncate.bubblenap.core.enums.MaskType;
 import java.awt.Image;
@@ -18,5 +19,9 @@ public abstract class AbstractEnemy extends MovingObject {
 
   public void resizeImage() {
 	  scaledInstance = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+  }
+  @Override
+  protected void applyEffect(GameManager gameManager) {
+	  
   }
 }
