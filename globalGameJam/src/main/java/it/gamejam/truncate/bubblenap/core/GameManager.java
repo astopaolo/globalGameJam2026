@@ -1,6 +1,10 @@
 package it.gamejam.truncate.bubblenap.core;
 
-import it.gamejam.truncate.bubblenap.core.enums.MaskType;
+import it.gamejam.truncate.bubblenap.core.enemies.AbstractEnemy;
+import it.gamejam.truncate.bubblenap.core.enemies.EnemyFactory;
+import it.gamejam.truncate.bubblenap.core.enemies.EnemySpawner;
+import it.gamejam.truncate.bubblenap.core.enemies.EnemyType;
+import it.gamejam.truncate.bubblenap.core.enemies.Werewolf;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -11,7 +15,6 @@ import javax.swing.JOptionPane;
 import it.gamejam.truncate.bubblenap.ui.Repaintable;
 
 public class GameManager {
-	private Werewolf werewolf;
 	private MaskedPlayer player;
 	private Repaintable repaintable;
 	private List<MovingObject> objects = new CopyOnWriteArrayList<>();
@@ -25,11 +28,15 @@ public class GameManager {
 
 	private List<MovingObject> toRemove = new ArrayList<>();
 	private DJLWebcamClassifier classifier;
+	private EnemyFactory factory;
+	private EnemySpawner spawner;
 	private String currentMaskName;
 
 	public GameManager() {
 		setMaskedPlayer(new MaskedPlayer( 612, 365));
 		try {
+			factory = new EnemyFactory();
+			spawner = new EnemySpawner(factory, 5000, 2);
 			classifier= new DJLWebcamClassifier(this);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +94,7 @@ public class GameManager {
 		points = 0;
 		objects.clear();
 		long rate = 1000 / 100;
-		//getObjects().add(new Werewolf(600,0,100,100,player.getSpeed(),0, MaskType.saverio));
+
 		Runnable updater = new Runnable() {
 
 			@Override
@@ -99,12 +106,14 @@ public class GameManager {
 						continue;
 					}
 					long elapsed = System.currentTimeMillis() - last;
+					spawner.update(GameManager.this);
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));
 					getObjects().forEach(o -> {
 						if (o.collide(player)) {
 							o.applyEffect(GameManager.this);
 						}
 					});
+
 					objects.removeAll(toRemove);
 					toRemove.clear();
 					repaintable.update();
@@ -132,4 +141,11 @@ public class GameManager {
 	public void setMask(String maskName) {
 		this.currentMaskName = maskName;
 	}
+
+	public int getActiveEnemyCount() {
+		return (int) getObjects().stream()
+				.filter(AbstractEnemy.class::isInstance)
+				.count();
+	}
+
 }

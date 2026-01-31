@@ -28,7 +28,10 @@ public class ImageLoader {
 	private static Image playBackPressed;
 	private static Image playBackRed;
 
-	private static Image mosquito;
+	private static Image werewolf;
+	private static Image zombie;
+	private static Image vampire;
+	private static Image mummy;
 
 	private static Image gameover;
 	private static Image gameScreen;
@@ -44,8 +47,17 @@ public class ImageLoader {
 	static {
 		try {
 
-			mosquito = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/test.jpg"));
+			zombie = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie.png"));
+
+			werewolf = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf.png"));
+
+			vampire = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
+
+			mummy = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
 //
 //			creditsBed = ImageIO
 //					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
@@ -161,9 +173,13 @@ public class ImageLoader {
 		return introVideoFrames;
 	}
 
-	public static Image getMosquito() {
-		return mosquito;
-	}
+	public static Image getWerewolf() { return werewolf; }
+
+	public static Image getZombie() { return zombie; }
+
+	public static Image getVampire() { return vampire; }
+
+  public static Image getMummy() { return mummy; }
 
 	public static Image getPlayBackPressed() {
 		return playBackPressed;
