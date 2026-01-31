@@ -59,82 +59,58 @@ public class ImageLoader {
 	static {
 		try {
 
-			zombie = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie.png"));
+			zombie = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/zombie.png"));
 
-			werewolf = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf.png"));
+			werewolf = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/werewolf.png"));
 
-			vampire = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
+			vampire = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire.png"));
 
-			mummy = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
+			mummy = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy.png"));
 //
 //			creditsBed = ImageIO
 //					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/CreditsBed.png"));
 //
-			background = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
-			background_blur = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
+			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
+			background_blur = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background_Blur.png"));
 
 			credits = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Credits.png"));
 
-			creditsPressed = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Credits_Pressed.png"));
+			creditsPressed = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Credits_Pressed.png"));
 
 			exit = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Exit.png"));
 
-			exitPressed = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Exit_Pressed.png"));
+			exitPressed = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Exit_Pressed.png"));
 
 			play = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Play.png"));
 
-			playPressed = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Play_Pressed.png"));
+			playPressed = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Play_Pressed.png"));
 
 			back = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back.png"));
 
-			backPressed = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back_Pressed.png"));
+			backPressed = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back_Pressed.png"));
 
-			gameScreen = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen.png"));
+			gameScreen = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen.png"));
 
-			scoreBackground = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/score_background.png"));
+			scoreBackground = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/score_background.png"));
 
 
-			luigiMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_mask.png"));
-			luigiNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_no_mask.png"));
+			luigiMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_mask.png"));
+			luigiNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_no_mask.png"));
 
-			stefanoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_mask.png"));
-			stefanoNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_no_mask.png"));
+			stefanoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_mask.png"));
+			stefanoNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_no_mask.png"));
 
-			domenicoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_mask.png"));
-			domenicoNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_no_mask.png"));
+			domenicoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_mask.png"));
+			domenicoNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_no_mask.png"));
 
-			paoloMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_mask.png"));
-			paoloNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_no_mask.png"));
+			paoloMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_mask.png"));
+			paoloNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_no_mask.png"));
 
-			ernaniMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_mask.png"));
-			ernaniNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_no_mask.png"));
+			ernaniMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_mask.png"));
+			ernaniNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_no_mask.png"));
 
-			saverioMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
-			saverioNoMask = ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
+			saverioMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
+			saverioNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
 //
 //			introVideoFrames = getVideoFrames("img/video/intro/", 100);
 //			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
@@ -144,8 +120,6 @@ public class ImageLoader {
 			e.printStackTrace();
 		}
 	}
-
-
 
 
 	public static List<Image> getGameOverVideoFrames() {
@@ -206,21 +180,28 @@ public class ImageLoader {
 		return introVideoFrames;
 	}
 
-	public static Image getWerewolf() { return werewolf; }
+	public static Image getWerewolf() {
+		return werewolf;
+	}
 
-	public static Image getZombie() { return zombie; }
+	public static Image getZombie() {
+		return zombie;
+	}
 
-	public static Image getVampire() { return vampire; }
+	public static Image getVampire() {
+		return vampire;
+	}
 
-  public static Image getMummy() { return mummy; }
+	public static Image getMummy() {
+		return mummy;
+	}
 
 
 	private static List<Image> getVideoFrames(final String dir, final int numberFrames) throws IOException {
 		List<Image> frames = new ArrayList<>();
 
 		for (int frameNumber = 1; frameNumber <= numberFrames; frameNumber++) {
-			frames.add(ImageIO
-					.read(Thread.currentThread().getContextClassLoader().getResource(dir + frameNumber + ".png")));
+			frames.add(ImageIO.read(Thread.currentThread().getContextClassLoader().getResource(dir + frameNumber + ".png")));
 
 		}
 		return frames;
