@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ImageLoader {
 
-	private static Image creditsBed;
 
 	private static Image credits;
 	private static Image creditsPressed;
@@ -25,8 +24,6 @@ public class ImageLoader {
 	private static Image back;
 	private static Image backPressed;
 
-	private static Image playBackPressed;
-	private static Image playBackRed;
 
 	private static Image werewolf;
 	private static Image zombie;
@@ -35,10 +32,25 @@ public class ImageLoader {
 
 	private static Image gameover;
 	private static Image gameScreen;
-	private static Image bollaMuco;
-	private static Image bollaMucoScoppiata;
-	private static Image hourGlass;
 	private static Image scoreBackground;
+
+	private static Image luigiMask;
+	private static Image luigiNoMask;
+
+	private static Image stefanoMask;
+	private static Image stefanoNoMask;
+
+	private static Image domenicoMask;
+	private static Image domenicoNoMask;
+
+	private static Image paoloMask;
+	private static Image paoloNoMask;
+
+	private static Image ernaniMask;
+	private static Image ernaniNoMask;
+
+	private static Image saverioMask;
+	private static Image saverioNoMask;
 
 	private static List<Image> introVideoFrames;
 
@@ -86,19 +98,43 @@ public class ImageLoader {
 
 			backPressed = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back_Pressed.png"));
-//			gameover = ImageIO
-//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/gameover.png"));
-//			bollaMuco = ImageIO
-//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco.png"));
-//			bollaMucoScoppiata = ImageIO.read(
-//					Thread.currentThread().getContextClassLoader().getResource("img/game/bolla_muco_scoppiata.png"));
+
 			gameScreen = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen.png"));
-//			hourGlass = ImageIO
-//					.read(Thread.currentThread().getContextClassLoader().getResource("img/game/hourglass.png"));
-//
+
 			scoreBackground = ImageIO
 					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/score_background.png"));
+
+
+			luigiMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_mask.png"));
+			luigiNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/luigi_no_mask.png"));
+
+			stefanoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_mask.png"));
+			stefanoNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/stefano_no_mask.png"));
+
+			domenicoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_mask.png"));
+			domenicoNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/domenico_no_mask.png"));
+
+			paoloMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_mask.png"));
+			paoloNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/paolo_no_mask.png"));
+
+			ernaniMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_mask.png"));
+			ernaniNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/ernani_no_mask.png"));
+
+			saverioMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
+			saverioNoMask = ImageIO
+					.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
 //
 //			introVideoFrames = getVideoFrames("img/video/intro/", 100);
 //			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
@@ -110,9 +146,6 @@ public class ImageLoader {
 	}
 
 
-	public static Image getCreditsBed() {
-		return creditsBed;
-	}
 
 
 	public static List<Image> getGameOverVideoFrames() {
@@ -181,13 +214,6 @@ public class ImageLoader {
 
   public static Image getMummy() { return mummy; }
 
-	public static Image getPlayBackPressed() {
-		return playBackPressed;
-	}
-
-	public static Image getPlayBackWhite() {
-		return playBackRed;
-	}
 
 	private static List<Image> getVideoFrames(final String dir, final int numberFrames) throws IOException {
 		List<Image> frames = new ArrayList<>();
@@ -200,4 +226,55 @@ public class ImageLoader {
 		return frames;
 	}
 
+    public static Image getLuigiMask() {
+        return luigiMask;
+    }
+
+    public static Image getLuigiNoMask() {
+        return luigiNoMask;
+    }
+
+    public static Image getStefanoMask() {
+        return stefanoMask;
+    }
+
+    public static Image getStefanoNoMask() {
+        return stefanoNoMask;
+    }
+
+    public static Image getDomenicoMask() {
+        return domenicoMask;
+    }
+
+    public static Image getDomenicoNoMask() {
+        return domenicoNoMask;
+    }
+
+    public static Image getPaoloMask() {
+        return paoloMask;
+    }
+
+    public static void setPaoloMask(Image paoloMask) {
+        ImageLoader.paoloMask = paoloMask;
+    }
+
+    public static Image getPaoloNoMask() {
+        return paoloNoMask;
+    }
+
+    public static Image getErnaniMask() {
+        return ernaniMask;
+    }
+
+    public static Image getErnaniNoMask() {
+        return ernaniNoMask;
+    }
+
+    public static Image getSaverioMask() {
+        return saverioMask;
+    }
+
+    public static Image getSaverioNoMask() {
+        return saverioNoMask;
+    }
 }

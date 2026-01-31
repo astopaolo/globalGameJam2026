@@ -12,16 +12,38 @@ import java.awt.event.MouseMotionAdapter;
 
 public class CreditsMenuPanel extends JPanel {
 
-	private static final long serialVersionUID = 7717652359188444409L;
-	private static Image backgroundBlur = ImageLoader.getImageBackground_Blur();
+	private static final Image BACKGROUND_BLUR = ImageLoader.getImageBackground_Blur();
 	private static Image back = ImageLoader.getImageBack();
-	//private static Image creditBed = ImageLoader.getCreditsBed();
 
-	private static int CREDIT_BED_X = (1280 / 2) - 550;
-	private static int CREDIT_BED_Y = 45;
 
-	private static int BACK_X = (1280 / 2) - 150;
-	private static int BACK_Y = 643;
+	private static Image luigi = ImageLoader.getLuigiMask();
+	private static Image stefano = ImageLoader.getStefanoMask();
+	private static Image paolo = ImageLoader.getPaoloMask();
+	private static Image domenico = ImageLoader.getDomenicoMask();
+	private static Image saverio = ImageLoader.getSaverioMask();
+	private static Image ernani = ImageLoader.getErnaniMask();
+
+	private static final int PAOLO_X = 2;
+	private static final int PAOLO_Y = 45;
+
+	private static final int STEFANO_X = PAOLO_X + 400;
+	private static final int STEFANO_Y = 45;
+
+	private static final int DOMENICO_X = STEFANO_X + 400;
+	private static final int DOMENICO_Y = 45;
+
+	private static final int ERNANI_X = PAOLO_X;
+	private static final int ERNANI_Y = PAOLO_Y + 300;
+
+	private static final int SAVERIO_X = STEFANO_X;
+	private static final int SAVERIO_Y = PAOLO_Y + 300;
+
+	private static final int LUIGI_X = DOMENICO_X;
+	private static final int LUIGI_Y = PAOLO_Y + 300;
+
+
+	private static final int BACK_X = (1280 / 2) - 150;
+	private static final int BACK_Y = 643;
 
 	MainFrame frame;
 
@@ -48,6 +70,68 @@ public class CreditsMenuPanel extends JPanel {
 					// Back End
 				}
 
+				// Luigi Start
+				if ((e.getX() >= LUIGI_X) && (e.getX() <= (LUIGI_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= LUIGI_Y)
+						&& (e.getY() <= (LUIGI_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					luigi = ImageLoader.getLuigiNoMask();
+				} else {
+					luigi = ImageLoader.getLuigiMask();
+				}
+				// Luigi End
+
+				// Stefano Start
+				if ((e.getX() >= STEFANO_X) && (e.getX() <= (STEFANO_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= STEFANO_Y)
+						&& (e.getY() <= (STEFANO_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					stefano = ImageLoader.getStefanoNoMask();
+				} else {
+					stefano = ImageLoader.getStefanoMask();
+				}
+				// Stefano End
+
+				// Domenico Start
+				if ((e.getX() >= DOMENICO_X) && (e.getX() <= (DOMENICO_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= DOMENICO_Y)
+						&& (e.getY() <= (DOMENICO_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					domenico = ImageLoader.getDomenicoNoMask();
+				} else {
+					domenico = ImageLoader.getDomenicoMask();
+				}
+				// Domenico End
+
+
+				// Saverio Start
+				if ((e.getX() >= SAVERIO_X) && (e.getX() <= (SAVERIO_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= SAVERIO_Y)
+						&& (e.getY() <= (SAVERIO_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					saverio = ImageLoader.getSaverioNoMask();
+				} else {
+					saverio = ImageLoader.getSaverioMask();
+				}
+				// Saverio End
+
+				// Ernani Start
+				if ((e.getX() >= ERNANI_X) && (e.getX() <= (ERNANI_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= ERNANI_Y)
+						&& (e.getY() <= (ERNANI_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					ernani = ImageLoader.getErnaniNoMask();
+				} else {
+					ernani = ImageLoader.getErnaniMask();
+				}
+				// Ernani End
+
+				// Paolo Start
+				if ((e.getX() >= PAOLO_X) && (e.getX() <= (PAOLO_X + ImageLoader.getImageBack().getWidth(null)))
+						&& (e.getY() >= PAOLO_Y)
+						&& (e.getY() <= (PAOLO_Y + ImageLoader.getImageBack().getHeight(null)))) {
+					paolo = ImageLoader.getPaoloNoMask();
+				} else {
+					paolo = ImageLoader.getPaoloMask();
+				}
+				// Paolo End
+
+
 				repaint();
 			}
 		});
@@ -71,8 +155,14 @@ public class CreditsMenuPanel extends JPanel {
 	@Override
 	public void paintComponent(final Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(backgroundBlur, 0, 0, this.getWidth(), this.getHeight(), null);
+		g.drawImage(BACKGROUND_BLUR, 0, 0, this.getWidth(), this.getHeight(), null);
 		g.drawImage(back, BACK_X, BACK_Y, 330, 83, null);
+		g.drawImage(paolo, PAOLO_X, PAOLO_Y, 330, 83, null);
+		g.drawImage(stefano, STEFANO_X, STEFANO_Y, 330, 83, null);
+		g.drawImage(domenico, DOMENICO_X, DOMENICO_Y, 330, 83, null);
+		g.drawImage(ernani, ERNANI_X, ERNANI_Y, 330, 83, null);
+		g.drawImage(saverio, SAVERIO_X, SAVERIO_Y, 330, 83, null);
+		g.drawImage(luigi, LUIGI_X, LUIGI_Y, 330, 83, null);
 
 //		g.drawImage(creditBed, CREDIT_BED_X, CREDIT_BED_Y, (int) (creditBed.getWidth(null) * 0.7),
 //				(int) (creditBed.getHeight(null) * 0.7), null);
