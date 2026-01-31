@@ -45,21 +45,21 @@ public class DJLWebcamClassifier extends JFrame {
 		webcam = Webcam.getDefault();
 		webcam.setViewSize(new Dimension(640, 480));
 
-		WebcamPanel panel = new WebcamPanel(webcam);
-		panel.setFPSDisplayed(true);
-
-		resultLabel = new JLabel("In attesa del frame...", SwingConstants.CENTER);
-		resultLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
-		resultLabel.setPreferredSize(new Dimension(640, 50));
-
-		setLayout(new BorderLayout());
-		add(panel, BorderLayout.CENTER);
-		add(resultLabel, BorderLayout.SOUTH);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pack();
-		setLocationRelativeTo(null);
-		setVisible(true);
+//		WebcamPanel panel = new WebcamPanel(webcam);
+//		panel.setFPSDisplayed(true);
+//
+//		resultLabel = new JLabel("In attesa del frame...", SwingConstants.CENTER);
+//		resultLabel.setFont(new Font("SansSerif", Font.BOLD, 22));
+//		resultLabel.setPreferredSize(new Dimension(640, 50));
+//
+//		setLayout(new BorderLayout());
+//		add(panel, BorderLayout.CENTER);
+//		add(resultLabel, BorderLayout.SOUTH);
+//
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		pack();
+//		setLocationRelativeTo(null);
+//		setVisible(true);
 
 		// 3. Avvia il loop di predizione
 		startInferenceLoop();
@@ -99,9 +99,9 @@ public class DJLWebcamClassifier extends JFrame {
 						Classifications.Classification best = result.best();
 						gameManager.setMask(best.getClassName());
 						// Aggiorna l'etichetta
-						String text = String.format("%s (%.2f%%)", best.getClassName(), best.getProbability() * 100);
+//						String text = String.format("%s (%.2f%%)", best.getClassName(), best.getProbability() * 100);
 
-						SwingUtilities.invokeLater(() -> resultLabel.setText(text));
+//						SwingUtilities.invokeLater(() -> resultLabel.setText(text));
 
 					} catch (Exception e) {
 						e.printStackTrace();
