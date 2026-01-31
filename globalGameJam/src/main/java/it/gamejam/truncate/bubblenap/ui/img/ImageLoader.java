@@ -81,10 +81,10 @@ public class ImageLoader {
 				vampire[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire/"+i+".png"));
 				mummy[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy/"+i+".png"));
 			}
-			zombieHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/head/zombie.png"));
-			werewolfHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/head/werewolf.png"));
-			vampireHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/head/vampire.png"));
-			mummyHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/head/mummy.png"));
+			zombieHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/zombie.png"));
+			werewolfHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/werewolf.png"));
+			vampireHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/vampire.png"));
+			mummyHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/mummy.png"));
 
 			playerMummy = new Image[FRAMES];
 			playerVampire = new Image[FRAMES];
