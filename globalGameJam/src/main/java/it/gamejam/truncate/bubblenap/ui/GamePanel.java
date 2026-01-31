@@ -2,6 +2,7 @@ package it.gamejam.truncate.bubblenap.ui;
 
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.core.MaskedPlayer;
+import it.gamejam.truncate.bubblenap.core.enemies.AbstractEnemy;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import javax.swing.*;
@@ -85,10 +86,16 @@ public class GamePanel extends JPanel implements Repaintable {
 			g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
 
 		}
+
 		gameManager.getObjects().forEach(o -> {
-			g.drawImage(o.getTransformedImage(0), o.getX(), o.getY(), null);
+			if(o instanceof AbstractEnemy){
+				g.drawImage(o.getTransformedImage((int)((System.currentTimeMillis() / 100) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
+			}else{
+				g.drawImage(o.getTransformedImage(0), o.getX(), o.getY(), null);
+			}
 		});
-		g.drawImage(gameManager.getMaskedPlayer().getScaledImage(),gameManager.getMaskedPlayer().getX(),gameManager.getMaskedPlayer().getY(),null);
+
+		g.drawImage(player.getScaledImage((int)((System.currentTimeMillis() / 100) % player.getImageCount())), player.getX(), player.getY(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(font);
 		g.drawString("Points: " + gameManager.getPoints(), 45, 70);
