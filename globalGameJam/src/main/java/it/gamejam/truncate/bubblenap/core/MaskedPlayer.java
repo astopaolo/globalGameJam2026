@@ -18,6 +18,7 @@ public class MaskedPlayer {
 		this.y = y;
 		speed=0.2;
 		image=ImageLoader.getMummy();
+		scaledImage=new Image[image.length];
 		for(int i=0;i<image.length;i++) {
 			scaledImage[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
 		}

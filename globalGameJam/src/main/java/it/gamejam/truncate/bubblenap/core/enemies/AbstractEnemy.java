@@ -21,6 +21,7 @@ public abstract class AbstractEnemy extends MovingObject {
   }
 
   private void resizeImage() {
+	  scaledInstance=new Image[image.length];
 	  for(int i=0;i<image.length;i++) {
 		  scaledInstance[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
 	  }
