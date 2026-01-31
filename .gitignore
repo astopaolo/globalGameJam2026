@@ -2,3 +2,6 @@
 /.idea
 /test-pose/target
 globalGameJam/.idea/misc.xml
+/globalGameJam/.settings
+globalGameJam/.classpath
+globalGameJam/.project
