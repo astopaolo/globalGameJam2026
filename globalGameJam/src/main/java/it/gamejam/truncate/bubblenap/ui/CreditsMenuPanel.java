@@ -155,6 +155,13 @@ public class CreditsMenuPanel extends JPanel {
 	@Override
 	public void paintComponent(final Graphics g) {
 		super.paintComponent(g);
+
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+		g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+
 		g.drawImage(BACKGROUND_BLUR, 0, 0, this.getWidth(), this.getHeight(), null);
 		g.drawImage(back, BACK_X, BACK_Y, 330, 83, null);
 		g.drawImage(paolo, PAOLO_X, PAOLO_Y, IMAGE_WIDTH_PIXEL, IMAGE_HEIGHT_PIXEL, null);
