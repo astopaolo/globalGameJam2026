@@ -97,6 +97,19 @@ public class GamePanel extends JPanel implements Repaintable {
 		});
 
 		g.drawImage(player.getScaledImage((int)((System.currentTimeMillis() / 200) % player.getImageCount())), player.getX(), player.getY(), null);
+
+
+		//ansia che aumenta
+		Composite composite = g2d.getComposite();
+		int rule = AlphaComposite.SRC_OVER;
+        Composite comp = AlphaComposite.getInstance(rule , player.getAnxiety()/100f );
+        g2d.setComposite(comp );
+//        g2d.setColor(Color.green);
+//        g2d.fillRect(0, 0, getWidth(),getHeight());
+		g2d.drawImage(ImageLoader.getBloodCurtain(),  0, 0,null);
+		
+		
+		g2d.setComposite(composite);
 		g.setColor(Color.WHITE);
 		g.setFont(font);
 		g.drawString("Points: " + gameManager.getPoints(), 45, 70);
@@ -110,15 +123,11 @@ public class GamePanel extends JPanel implements Repaintable {
 		
 		g.setColor(Color.WHITE);
 		g.fillRect(anxX, anxY, anxW, anxH);
-		g.setColor(Color.red);
+		g.setColor(new Color(192,41,255));
+//		g.setColor(Color.GREEN);
 		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100)+(int)(Math.random()*2), anxH);
 		
-		int rule = AlphaComposite.SRC_OVER;
-        Composite comp = AlphaComposite.getInstance(rule , player.getAnxiety()/300f );
-        g2d.setComposite(comp );
-        g2d.setColor(Color.BLUE);
-        g2d.fillRect(0, 0, getWidth(),getHeight());
-//		g2d.drawImage(ImageLoader.getBloodCurtain(),  0, 0,null);
+		
 	}
 
 	public void startGame() {
