@@ -29,7 +29,7 @@ public class EnemyFactory {
     );
 
     register(EnemyType.ZOMBIE, (x, y) ->
-        new Zombie(x, y, 20, 20, -10.0,-1.0, MaskType.saverio)
+        new Zombie(x, y, 120, 220, -10.0,-1.0, MaskType.saverio)
     );
 
     register(EnemyType.MUMMY, (x, y) ->
@@ -47,8 +47,8 @@ public class EnemyFactory {
   }
 
   public void spawn(EnemyType type, Consumer<MovingObject> consumer) {
-    int x = ThreadLocalRandom.current().nextInt(-300, -200);
-    int y = ThreadLocalRandom.current().nextInt(1, 2);
+    int x = 1500;
+    int y = 340;
     AbstractEnemy enemy = create(type, x, y);
     consumer.accept(enemy);
   }

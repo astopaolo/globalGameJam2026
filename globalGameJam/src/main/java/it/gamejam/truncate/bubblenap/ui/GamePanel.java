@@ -19,8 +19,7 @@ public class GamePanel extends JPanel implements Repaintable {
 	private final MaskedPlayer player;
 	private final GameManager gameManager;
 
-	private int firstBackgroundX = 0;
-	private int secondBackgroundX = 2690;
+	
 
 	private Font font;
 	private MainFrame mainFrame;
@@ -57,8 +56,8 @@ public class GamePanel extends JPanel implements Repaintable {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		
-		g.drawImage(ImageLoader.getGameScreen(), firstBackgroundX, 0, 2690, getHeight(), null);
-		g.drawImage(ImageLoader.getGameScreen(), secondBackgroundX, 0, 2690, getHeight(), null);
+//		g.drawImage(ImageLoader.getGameScreen(), gameManager.getFirstBackgroundX(), 0, 2690, getHeight(), null);
+//		g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
 
 
 		if (gameManager.isGameOver()) {
@@ -81,25 +80,10 @@ public class GamePanel extends JPanel implements Repaintable {
 				}.start();
 			}
 		} else {
-			firstBackgroundX-=gameManager.getMaskedPlayer().getSpeed();
-			secondBackgroundX-=gameManager.getMaskedPlayer().getSpeed();
 
-			if (firstBackgroundX <= -2690) {
-				firstBackgroundX = 2690;
-			}
-			if (secondBackgroundX <= -2690 ) {
-				secondBackgroundX = 2690;
-			}
+			g.drawImage(ImageLoader.getGameScreen(), gameManager.getFirstBackgroundX(), 0, 2690, getHeight(), null);
+			g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
 
-			g.drawImage(ImageLoader.getGameScreen(), firstBackgroundX, 0, 2690, getHeight(), null);
-			g.drawImage(ImageLoader.getGameScreen(), secondBackgroundX, 0, 2690, getHeight(), null);
-
-
-
-
-//			g.drawImage(ImageLoader.getBollaMuco(), bubble.getX() - (int) bubble.getRadius(),
-//					bubble.getY() - (int) bubble.getRadius(), (int) bubble.getRadius() * 2,
-//					(int) bubble.getRadius() * 2, null);
 		}
 		gameManager.getObjects().forEach(o -> {
 			g.drawImage(o.getTransformedImage(), o.getX(), o.getY(), null);

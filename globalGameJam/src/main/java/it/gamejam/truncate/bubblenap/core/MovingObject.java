@@ -11,6 +11,7 @@ public abstract class MovingObject {
 	protected double dx;
 	protected double dy;
 	protected Image image;
+	protected Image scaledInstance;
 
 
 	public MovingObject(final int x, final int y, final int width, final int height, final double dx, final double dy, final Image image) {
@@ -43,8 +44,7 @@ public abstract class MovingObject {
 	}
 
 	public Image getTransformedImage() {
-
-		return image;
+		return scaledInstance;
 	}
 
 	public int getWidth() {
@@ -90,6 +90,6 @@ public abstract class MovingObject {
 	}
 
 	public void updatePosition(final long elapsed, double speed) {
-		x += speed * elapsed;
+		x -= (int)(speed * elapsed);
 	}
 }

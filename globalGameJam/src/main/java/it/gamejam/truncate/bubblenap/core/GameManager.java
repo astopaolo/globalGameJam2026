@@ -31,6 +31,8 @@ public class GameManager {
 	private EnemyFactory factory;
 	private EnemySpawner spawner;
 	private String currentMaskName;
+	private int firstBackgroundX = 0;
+	private int secondBackgroundX = 2690;
 
 	public GameManager() {
 		setMaskedPlayer(new MaskedPlayer( 612, 365));
@@ -107,12 +109,28 @@ public class GameManager {
 					}
 					long elapsed = System.currentTimeMillis() - last;
 					spawner.update(GameManager.this);
+					
+					int d = (int) (player.getSpeed()*elapsed);
+					firstBackgroundX-=d;
+					secondBackgroundX-=d;
+
+					if (firstBackgroundX <= -2690) {
+						firstBackgroundX = 2690;
+					}
+					if (secondBackgroundX <= -2690 ) {
+						secondBackgroundX = 2690;
+					}
+
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));
 					getObjects().forEach(o -> {
 						if (o.collide(player)) {
 							o.applyEffect(GameManager.this);
 						}
+						if(o.getX()<-o.getWidth()) {
+							toRemove.add(o);
+						}
 					});
+					
 
 					objects.removeAll(toRemove);
 					toRemove.clear();
@@ -148,4 +166,10 @@ public class GameManager {
 				.count();
 	}
 
+	public int getFirstBackgroundX() {
+		return firstBackgroundX;
+	}
+	public int getSecondBackgroundX() {
+		return secondBackgroundX;
+	}
 }

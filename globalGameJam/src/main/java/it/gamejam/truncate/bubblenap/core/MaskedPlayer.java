@@ -10,7 +10,7 @@ public class MaskedPlayer {
 		super();
 		this.x = x;
 		this.y = y;
-		speed=1.0;
+		speed=0.2;
 	}
 
 	public double getSpeed() {
