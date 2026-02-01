@@ -63,7 +63,7 @@ public class GameManager {
 		running.set(false);
 		gameOver.set(true);
 		repaintable.update();
-		System.out.println("GameManager.gameOver()"+webcamDialog.isVisible());
+		player.reset();
 	}
 
 	public MaskedPlayer getMaskedPlayer() {

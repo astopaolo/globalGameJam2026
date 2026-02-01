@@ -108,15 +108,15 @@ public class GamePanel extends JPanel implements Repaintable {
 		
 		g2d.setComposite(composite);
 		
-		g.drawImage(player.getCurrentHead(), 10, 10,95,120, null);
+		g.drawImage(player.getCurrentHead(), 30, 10,95,120, null);
 		
-		g.setColor(Color.WHITE);
+		g.setColor(player.getCurrentColor());
 		g.setFont(font);
-		g.drawString("Points: " + gameManager.getPoints(), 245, 70);
+		g.drawString("Points: " + gameManager.getPoints(), 200, 70);
 
 		g.setColor(Color.BLACK);
-		int anxX = 600;
-		int anxY = 25;
+		int anxX = 210;
+		int anxY = 85;
 		int anxW = 200;
 		int anxH = 15;
 		g.fillRect(anxX -2, anxY -2 , anxW + 4, anxH + 4);
@@ -138,7 +138,7 @@ public class GamePanel extends JPanel implements Repaintable {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
-				font = new Font("Creepster", Font.BOLD, 55);
+				font = new Font("Creepster", Font.BOLD, 45);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}
