@@ -3,6 +3,8 @@ package it.gamejam.truncate.bubblenap.core.enemies;
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.core.MovingObject;
 import it.gamejam.truncate.bubblenap.core.enums.MaskType;
+import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
+import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
 import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import java.awt.Image;
@@ -38,7 +40,7 @@ public abstract class AbstractEnemy extends MovingObject {
 		if (!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
 			  gameManager.getMaskedPlayer().increaseAnxiety();
 			  startTaunting = System.currentTimeMillis();
-			  System.err.println("anxiety: "+gameManager.getMaskedPlayer().getAnxiety());
+        new Thread(() -> SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getHitSound(), 4f)).start();
 			  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
 				  gameManager.gameOver();
 			  }

@@ -10,11 +10,9 @@ public class SoundProvider {
 	private static byte[] menuSound;
 	private static byte[] gameSound;
 	private static byte[] gameOverBackground;
-
-
 	private static byte[] gameOverBreath;
 	private static byte[] introSound;
-
+	private static byte[] hitSound;
 
 	static {
 
@@ -44,11 +42,18 @@ public class SoundProvider {
 				fis.read(menuSound);
 			}
 
-
+			try (FileInputStream fis = new FileInputStream("resources/audio/scream-male.wav")) {
+				hitSound = new byte[fis.available()];
+				fis.read(hitSound);
+			}
 		} catch (final Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
 		}
+	}
+
+	public static byte[] getHitSound() {
+		return hitSound;
 	}
 
 
