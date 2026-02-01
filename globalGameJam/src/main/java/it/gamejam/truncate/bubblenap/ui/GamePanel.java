@@ -115,7 +115,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		g.drawString("Points: " + gameManager.getPoints(), 200, 70);
 
 		g.setColor(Color.BLACK);
-		int anxX = 210;
+		int anxX = 215;
 		int anxY = 85;
 		int anxW = 200;
 		int anxH = 15;
@@ -127,8 +127,9 @@ public class GamePanel extends JPanel implements Repaintable {
 //		g.setColor(Color.GREEN);
 		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100)+(int)(Math.random()*2), anxH);
 		g.drawImage(ImageLoader.getAnxietyFrame(), anxX-14, anxY-5,anxW+30,anxH+10, null);
-		
-		
+		if(!gameManager.isGameOver()) {
+			g.drawImage(ImageLoader.getWebcamFrame(), 1000, 16, null);
+		}
 	}
 
 	public void startGame() {
