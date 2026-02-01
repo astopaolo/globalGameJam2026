@@ -87,6 +87,7 @@ public class MainFrame extends JFrame {
         dialog.setModal(true);
         dialog.add(webcam);
         dialog.pack();
+        gameManager.setWebcamDialog(dialog);
 	}
 
 	public void drawPanel(final EnumPanel panel) {

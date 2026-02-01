@@ -100,7 +100,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		//ansia che aumenta
 		Composite composite = g2d.getComposite();
 		int rule = AlphaComposite.SRC_OVER;
-        Composite comp = AlphaComposite.getInstance(rule , player.getAnxiety()/100f );
+        Composite comp = AlphaComposite.getInstance(rule , Math.min(1, player.getAnxiety()/100f) );
         g2d.setComposite(comp );
 //        g2d.setColor(Color.green);
 //        g2d.fillRect(0, 0, getWidth(),getHeight());

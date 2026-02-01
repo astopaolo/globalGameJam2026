@@ -49,11 +49,14 @@ public class MaskedPlayer {
 	}
 
 	public void increaseAnxiety() {
-		anxiety+=10;
+		anxiety+=15;
 	}
 
 	public void decreaseAnxiety() {
-		anxiety-=5;
+		anxiety-=2;
+		if(anxiety<0) {
+			anxiety = 0;
+		}
 	}
 
 	public void accelerate() {

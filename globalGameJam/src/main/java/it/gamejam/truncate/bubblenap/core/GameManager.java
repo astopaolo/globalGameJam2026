@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import it.gamejam.truncate.bubblenap.ui.Repaintable;
@@ -36,6 +37,7 @@ public class GameManager {
 	private MaskType currentMaskName;
 	private int firstBackgroundX = 0;
 	private int secondBackgroundX = 1300;
+	private JDialog webcamDialog;
 
 	public GameManager() {
 		setMaskedPlayer(new MaskedPlayer( 100, 450));
@@ -57,8 +59,11 @@ public class GameManager {
 
 	public void gameOver() {
 		System.out.println("GameManager.gameOver()");
+		webcamDialog.setVisible(false);
 		running.set(false);
 		gameOver.set(true);
+		repaintable.update();
+		System.out.println("GameManager.gameOver()"+webcamDialog.isVisible());
 	}
 
 	public MaskedPlayer getMaskedPlayer() {
@@ -164,7 +169,7 @@ public class GameManager {
 	}
 	
 	public void setMask(MaskType maskName) {
-		System.out.println(maskName);
+		//System.out.println(maskName);
 		this.currentMaskName = maskName;
 	}
 
@@ -181,5 +186,9 @@ public class GameManager {
 	}
 	public int getSecondBackgroundX() {
 		return secondBackgroundX;
+	}
+
+	public void setWebcamDialog(JDialog dialog) {
+		this.webcamDialog = dialog;
 	}
 }
