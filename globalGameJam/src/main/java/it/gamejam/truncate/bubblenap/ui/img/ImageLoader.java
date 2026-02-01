@@ -39,12 +39,12 @@ public class ImageLoader {
 	private static Image mummyHead;
 	private static Image baseHead;
 
-	private static Image[] player;
-	private static Image[] playerMummy;
-	private static Image[] playerVampire;
-	private static Image[] playerWerewolf;
-	private static Image[] playerZombie;
-	private static Image[] playerBase;
+	private static BufferedImage[] player;
+	private static BufferedImage[] playerMummy;
+	private static BufferedImage[] playerVampire;
+	private static BufferedImage[] playerWerewolf;
+	private static BufferedImage[] playerZombie;
+	private static BufferedImage[] playerBase;
 
 	private static Image[] garbage;
 	private static Image[] manhole;
@@ -105,17 +105,17 @@ public class ImageLoader {
 			vampireTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/vampire.png"));
 			mummyTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/mummy.png"));
 
-			playerMummy = new Image[FRAMES];
-			playerVampire = new Image[FRAMES];
-			playerWerewolf = new Image[FRAMES];
-			playerZombie = new Image[FRAMES];
-			playerBase = new Image[FRAMES];
+			playerMummy = new BufferedImage[FRAMES];
+			playerVampire = new BufferedImage[FRAMES];
+			playerWerewolf = new BufferedImage[FRAMES];
+			playerZombie = new BufferedImage[FRAMES];
+			playerBase = new BufferedImage[FRAMES];
 
 			for (int i = 1; i <= FRAMES; i++) {
-				playerMummy[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO MUMMIA/MUMMIA-"+i+".png"));
-				playerVampire[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO VAMPIRO/VAMPIRO-"+i+".png"));
-				playerWerewolf[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO LUPO/LUPO-"+i+".png"));
-				playerZombie[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO ZOMBIE/Zombie-"+i+".png"));
+				playerMummy[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO MUMMIA/"+i+".png"));
+				playerVampire[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO VAMPIRO/"+i+".png"));
+				playerWerewolf[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO LUPO/"+i+".png"));
+				playerZombie[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO ZOMBIE/"+i+".png"));
 				playerBase[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/BASE/"+i+".png"));
 			}
 

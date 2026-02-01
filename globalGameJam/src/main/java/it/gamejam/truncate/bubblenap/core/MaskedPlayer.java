@@ -34,7 +34,7 @@ public class MaskedPlayer {
 		imagesMap.put(MaskType.VAMPIRE, scale(ImageLoader.getPlayerVampire()));
 		imagesMap.put(MaskType.WEREWOLF, scale(ImageLoader.getPlayerWerewolf()));
 		imagesMap.put(MaskType.ZOMBIE, scale(ImageLoader.getPlayerZombie()));
-		imagesMap.put(MaskType.BASE, ImageLoader.getPlayerBase());
+		imagesMap.put(MaskType.BASE, scale(ImageLoader.getPlayerBase()));
 	
 		iconsMap.put(MaskType.MUMMY, ImageLoader.getMummyHead());
 		iconsMap.put(MaskType.VAMPIRE, ImageLoader.getVampireHead());
@@ -53,7 +53,7 @@ public class MaskedPlayer {
 	private Image[] scale(Image[] source) {
 		Image[] toReturn=new Image[source.length];
 		for (int i = 0; i < toReturn.length; i++) {
-			toReturn[i]=source[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);	
+			toReturn[i]=source[i].getScaledInstance(200, 400, Image.SCALE_SMOOTH);	
 		}
 		return toReturn;
 	}

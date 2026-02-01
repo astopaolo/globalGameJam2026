@@ -98,7 +98,7 @@ public class GamePanel extends JPanel implements Repaintable {
 			}
 		});
 
-		g.drawImage(player.getScaledImage((int)((timeMillis / 200) % player.getImageCount())), player.getX(), player.getY(), null);
+		g.drawImage(player.getScaledImage((int)((timeMillis / 100) % player.getImageCount())), player.getX(), player.getY(), null);
 
 
 		//ansia che aumenta

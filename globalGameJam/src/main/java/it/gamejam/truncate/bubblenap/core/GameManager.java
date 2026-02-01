@@ -40,7 +40,7 @@ public class GameManager {
 	private JDialog webcamDialog;
 
 	public GameManager() {
-		setMaskedPlayer(new MaskedPlayer( 100, 450));
+		setMaskedPlayer(new MaskedPlayer( 100, 300));
 		try {
 			enemyFactory = new EnemyFactory();
 			staticObjectFactory = new StaticObjectFactory();
