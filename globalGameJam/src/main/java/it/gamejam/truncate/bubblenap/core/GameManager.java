@@ -117,8 +117,9 @@ public class GameManager {
 						continue;
 					}
 					long elapsed = System.currentTimeMillis() - last;
-					staticObjectSpawner.update(GameManager.this);
 					enemySpawner.update(GameManager.this);
+					staticObjectSpawner.update(GameManager.this);
+					staticObjectSpawner.updateForHydrant(GameManager.this);
 					if(last-start > 5000) {
 						start = last;
 						player.accelerate();

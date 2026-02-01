@@ -42,6 +42,9 @@ public class ImageLoader {
 	private static Image[] playerZombie;
 	private static Image[] playerBase;
 
+	private static Image[] garbage;
+	private static Image[] manhole;
+	private static Image hydrant;
 
 	private static BufferedImage bloodCurtain;
 	private static Image gameScreen;
@@ -106,6 +109,14 @@ public class ImageLoader {
 				playerZombie[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/RAGAZZO ZOMBIE/Zombie-"+i+".png"));
 				playerBase[i-1] = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/Ragazzo/BASE/"+i+".png"));
 			}
+
+			garbage = new Image[3];
+			manhole = new Image[3];
+			for (int i=0;i<3;i++) {
+				garbage[i]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/environment/garbage/"+(i+1)+".png"));
+				manhole[i]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/environment/manhole/"+(i+1)+".png"));
+			}
+			hydrant = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/environment/hydrant/1.png"));
 
 			bloodCurtain = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/blood_curtain.png"));
 			background = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Background.png"));
@@ -342,4 +353,10 @@ public class ImageLoader {
 	public static Image getWebcamFrame() {
 		return webcamFrame;
 	}
+
+	public static Image[] getGarbage() { return garbage; }
+
+	public static Image[] getManhole() { return manhole; }
+
+	public static Image getHydrant() { return hydrant; }
 }

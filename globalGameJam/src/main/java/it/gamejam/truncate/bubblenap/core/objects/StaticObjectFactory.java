@@ -20,10 +20,20 @@ public class StaticObjectFactory {
   }
 
   private void registerDefaults() {
-    register(StaticObjectType.GARBAGE, (x, y) ->{
-          y += (int)(Math.random() * 120 - 60);
-          return new Garbage(x, y, 70, 70, DX,1.0);
-    });
+    register(StaticObjectType.MANHOLE, (x, y) ->
+        new Manhole(1500 + ((int) Math.random() * 200 - 100),
+            615 + ((int)(Math.random() * 100 - 50)), 80, 80, DX,1.0)
+    );
+
+    register(StaticObjectType.GARBAGE, (x, y) ->
+        new Garbage(1700 + ((int) Math.random() * 200 - 100),
+            470 + ((int)(Math.random() * 14 - 7)), 80, 80, DX,1.0)
+    );
+
+    register(StaticObjectType.HYDRANT, (x, y) ->
+        new Hydrant(2200 + ((int) Math.random() * 300 - 150),
+            520 + ((int)(Math.random() * 10 - 5)), 80, 80, DX,1.0)
+    );
   }
 
   public void register(StaticObjectType type, ObjectCreator creator) {
@@ -36,9 +46,7 @@ public class StaticObjectFactory {
   }
 
   public void spawn(StaticObjectType type, Consumer<MovingObject> consumer) {
-    int x = 1500;
-    int y = 600;
-    MovingObject obj = create(type, x,y);
+    MovingObject obj = create(type, 0,0);
     consumer.accept(obj);
   }
 }
