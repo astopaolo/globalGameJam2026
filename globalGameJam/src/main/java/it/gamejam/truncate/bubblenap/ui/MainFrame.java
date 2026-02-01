@@ -16,8 +16,6 @@ import java.util.Optional;
 
 public class MainFrame extends JFrame {
 
-	private static final String MESSAGE_VIDEO_INTRO = "If the bubble pops the child wakes up!";
-
 	private static final long serialVersionUID = -6974599828262854447L;
 
 	private static SimpleAudioPlayer backgroundMusic;
