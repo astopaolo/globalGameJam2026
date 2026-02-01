@@ -35,7 +35,7 @@ public class GameManager {
 	private StaticObjectFactory staticObjectFactory;
 	private MaskType currentMaskName;
 	private int firstBackgroundX = 0;
-	private int secondBackgroundX = 2690;
+	private int secondBackgroundX = 1300;
 
 	public GameManager() {
 		setMaskedPlayer(new MaskedPlayer( 100, 450));
@@ -98,7 +98,7 @@ public class GameManager {
 		gameOver.set(false);
 		points = 0;
 		objects.clear();
-		long rate = 1000 / 100;
+		long rate = 5;
 
 		Runnable updater = new Runnable() {
 
@@ -122,11 +122,11 @@ public class GameManager {
 					firstBackgroundX-=d;
 					secondBackgroundX-=d;
 
-					if (firstBackgroundX <= -2690) {
-						firstBackgroundX = secondBackgroundX + 2690;
+					if (firstBackgroundX <= -1300+1) {
+						firstBackgroundX = secondBackgroundX + 1490-1;
 					}
-					if (secondBackgroundX <= -2690 ) {
-						secondBackgroundX = firstBackgroundX + 2690;
+					if (secondBackgroundX <= -1485 ) {
+						secondBackgroundX = firstBackgroundX + 1300-1;
 					}
 
 					getObjects().forEach(t -> t.updatePosition(elapsed,player.getSpeed()));
