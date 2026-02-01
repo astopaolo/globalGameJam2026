@@ -72,7 +72,7 @@ public class MainFrame extends JFrame {
 		gamePanel = new GamePanel(gameManager, this);
 		scorePanel = new ScorePanel(gameManager, this);
 		gameOverVideoPanel = new VideoPanel(this, ImageLoader.getGameOverVideoFrames(), EnumPanel.SCORE_PANEL,
-				List.of(SoundProvider.getGameOverBackground(), SoundProvider.getGameOverBreath()), Optional.empty());
+				List.of(SoundProvider.getGameOverBackground(), SoundProvider.getGameOverBreath()), Optional.of("Am I dreaming...?"));
 
 		gameManager.setRepaintable(gamePanel);
 		setUndecorated(true);
