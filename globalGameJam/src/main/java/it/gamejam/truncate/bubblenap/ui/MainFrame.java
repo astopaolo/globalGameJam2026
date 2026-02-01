@@ -27,6 +27,8 @@ public class MainFrame extends JFrame {
 		return backgroundMusic;
 	}
 
+	ImageIcon logo = new ImageIcon(getClass().getClassLoader().getResource("img/game/enemies/heads/werewolf.png"));
+
 	public static void main(final String[] args) throws Exception {
 
 
@@ -57,6 +59,7 @@ public class MainFrame extends JFrame {
 	private JDialog dialog;
 
 	public MainFrame() {
+		this.setIconImage(logo.getImage());
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		gameManager = new GameManager();
