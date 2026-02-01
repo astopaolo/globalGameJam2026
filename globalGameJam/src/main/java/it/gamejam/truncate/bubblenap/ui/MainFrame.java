@@ -29,6 +29,10 @@ public class MainFrame extends JFrame {
 
 	public static void main(final String[] args) throws Exception {
 
+
+
+		final JFrame mainFrame = new MainFrame();
+		mainFrame.setVisible(true);
 		backgroundMusic = new SimpleAudioPlayer(SoundProvider.getMenuSound(), 1f);
 		backgroundMusic.playLoop();
 
@@ -37,14 +41,8 @@ public class MainFrame extends JFrame {
 		gameMusic.playLoop();
 		gameMusic.stop();
 
-		final JFrame mainFrame = new MainFrame();
-		mainFrame.setVisible(true);
-
 	}
 
-	public static void setBackgroundMusic(final SimpleAudioPlayer backgroundMusic) {
-		MainFrame.backgroundMusic = backgroundMusic;
-	}
 
 	private final MenuPanel menuPanel;
 
