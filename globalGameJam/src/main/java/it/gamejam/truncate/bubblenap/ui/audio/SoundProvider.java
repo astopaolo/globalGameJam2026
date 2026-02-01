@@ -9,21 +9,35 @@ import java.util.Map;
 public class SoundProvider {
 	private static byte[] menuSound;
 	private static byte[] gameSound;
-	private static byte[] gameOver;
+	private static byte[] gameOverBackground;
+
+
+	private static byte[] gameOverBreath;
+	private static byte[] introSound;
 
 
 	static {
+
 		try {
+
+			try (FileInputStream fis = new FileInputStream("resources/audio/intro-sound.wav")) {
+				introSound = new byte[fis.available()];
+				fis.read(introSound);
+			}
 			try (FileInputStream fis = new FileInputStream("resources/audio/game-sound.wav")) {
 				gameSound = new byte[fis.available()];
 				fis.read(gameSound);
 			}
 
-			try (FileInputStream fis = new FileInputStream("resources/audio/game_over.wav")) {
-				gameOver = new byte[fis.available()];
-				fis.read(gameOver);
+			try (FileInputStream fis = new FileInputStream("resources/audio/game-over-background.wav")) {
+				gameOverBackground = new byte[fis.available()];
+				fis.read(gameOverBackground);
 			}
 
+			try (FileInputStream fis = new FileInputStream("resources/audio/game-over-breath.wav")) {
+				gameOverBreath = new byte[fis.available()];
+				fis.read(gameOverBreath);
+			}
 
 			try (FileInputStream fis = new FileInputStream("resources/audio/menu-sound.wav")) {
 				menuSound = new byte[fis.available()];
@@ -38,10 +52,12 @@ public class SoundProvider {
 	}
 
 
+	public static byte[] getGameOverBreath() {
+		return gameOverBreath;
+	}
 
-
-	public static byte[] getGameOver() {
-		return gameOver;
+	public static byte[] getGameOverBackground() {
+		return gameOverBackground;
 	}
 
 
@@ -67,5 +83,9 @@ public class SoundProvider {
 
 	public static byte[] getGameSound() {
 		return gameSound;
+	}
+
+	public static byte[] getIntroSound() {
+		return introSound;
 	}
 }

@@ -64,12 +64,12 @@ public class MainFrame extends JFrame {
 		menuPanel = new MenuPanel(this);
 		creditsMenu = new CreditsMenuPanel(this);
 		introVideoPanel = new VideoPanel(this, ImageLoader.getIntroVideoFrames(), EnumPanel.GAME_PANEL,
-				List.of(), Optional.empty());
+				List.of(SoundProvider.getIntroSound()), Optional.empty());
 
 		gamePanel = new GamePanel(gameManager, this);
 		scorePanel = new ScorePanel(gameManager, this);
 		gameOverVideoPanel = new VideoPanel(this, ImageLoader.getGameOverVideoFrames(), EnumPanel.SCORE_PANEL,
-				List.of(SoundProvider.getGameOver()), Optional.empty());
+				List.of(SoundProvider.getGameOverBackground(), SoundProvider.getGameOverBreath()), Optional.empty());
 
 		gameManager.setRepaintable(gamePanel);
 		setUndecorated(true);

@@ -165,8 +165,8 @@ public class ImageLoader {
 
 			saverioMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
 			saverioNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
-			introVideoFrames = getVideoFrames("img/video/intro/", 26);
-			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 27);
+			introVideoFrames = getVideoFrames("img/video/intro/", 110);
+			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 70);
 
 		} catch (final IOException e) {
 			e.printStackTrace();
