@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class ScorePanel extends JPanel {
 	private static final long serialVersionUID = -2020644767984510521L;
+	private static final Image SCORE_BACKGROUND = ImageLoader.getImageBackground_Blur();
 
-	private static Image scoreBackground = ImageLoader.getImageScoreBackground();
 	private static Image back = ImageLoader.getImageBack();
 	private static final int BACK_X = (1280 / 2) - 150;
 	private static final int BACK_Y = 643;
@@ -77,7 +77,7 @@ public class ScorePanel extends JPanel {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		g.drawImage(scoreBackground, 0, 0, this.getWidth(), this.getHeight(), null);
+		g.drawImage(SCORE_BACKGROUND, 0, 0, this.getWidth(), this.getHeight(), null);
 		g.setColor(new Color(0, 0, 0, 0.6f));
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.drawImage(back, BACK_X, BACK_Y, 330, 83, null);
