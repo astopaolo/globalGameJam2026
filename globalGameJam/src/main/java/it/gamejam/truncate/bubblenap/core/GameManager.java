@@ -58,7 +58,6 @@ public class GameManager {
 	}
 
 	public void gameOver() {
-		System.out.println("GameManager.gameOver()");
 		webcamDialog.setVisible(false);
 		running.set(false);
 		gameOver.set(true);
@@ -170,7 +169,6 @@ public class GameManager {
 	}
 	
 	public void setMask(MaskType maskName) {
-		//System.out.println(maskName);
 		this.currentMaskName = maskName;
 	}
 

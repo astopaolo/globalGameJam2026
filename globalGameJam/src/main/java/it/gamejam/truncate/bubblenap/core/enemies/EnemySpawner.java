@@ -31,27 +31,21 @@ public class EnemySpawner {
     long now = System.currentTimeMillis();
     if (now - lastSpawn  < nextSpawnIntervalMs) return;
     if (gameManager.getActiveEnemyCount() >= maxEnemies){
-      System.out.println("Max enemies reached: " + gameManager.getActiveEnemyCount());
       return;
     }
     long bound = spawnIntervalMs;
     long delta =random.nextLong(bound);
     nextSpawnIntervalMs=spawnIntervalMs+delta;
-    System.out.println("nextSpawnIntervalMs: "+nextSpawnIntervalMs);
     EnemyType type = enemyTypes.get(random.nextInt(enemyTypes.size()));
-    //EnemyType type = EnemyType.ZOMBIE;
     factory.spawn(type, gameManager::addMovingObject);
     lastSpawn = now;
-    //spawnIntervalMs*=0.95;
   }
 
   public void reduceSpawnInterval(double factor) {
     long newInterval = (long)(spawnIntervalMs * factor);
-    System.out.println("Reducing spawn interval from " + spawnIntervalMs + " to " + newInterval);
   }
 
   public void increaseMaxEnemies(int increment) {
     int newMax = maxEnemies + increment;
-    System.out.println("Increasing max enemies from " + maxEnemies + " to " + newMax);
   }
 }
