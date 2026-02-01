@@ -51,6 +51,7 @@ public class GamePanel extends JPanel implements Repaintable {
 	protected void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		long timeMillis = System.currentTimeMillis();
 //		g.setClip(new Polygon(new int[] {0,getWidth()-325,getWidth()-325,getWidth(),getWidth(),0}, new int[] {0,0,245,245,getHeight(),getHeight()},6 ));
 
         // Enable anti-aliasing for text
@@ -77,30 +78,33 @@ public class GamePanel extends JPanel implements Repaintable {
 					};
 				}.start();
 			}
-		} else {
+		}
 
 			g.drawImage(ImageLoader.getGameScreen1(), gameManager.getFirstBackgroundX(), 0, null);
 			g.drawImage(ImageLoader.getGameScreen2(), gameManager.getSecondBackgroundX(), 0, null);
 //			g.drawImage(ImageLoader.getGameScreen(), gameManager.getFirstBackgroundX(), 0, 2690, getHeight(), null);
 //			g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
 
-		}
 
 		gameManager.getObjects().forEach(o -> {
 			if(o instanceof AbstractEnemy){
-				g.drawImage(o.getTransformedImage((int)((System.currentTimeMillis() / 150) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
+				g.drawImage(o.getTransformedImage((int)((timeMillis / 150) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
+				Image tauntingImage = ((AbstractEnemy) o).getTauntingImage();
+				if(tauntingImage!=null) {
+					g.drawImage(tauntingImage, o.getX(), o.getY(), null);
+				}
 			}else{
 				g.drawImage(o.getTransformedImage(0), o.getX(), o.getY(), null);
 			}
 		});
 
-		g.drawImage(player.getScaledImage((int)((System.currentTimeMillis() / 200) % player.getImageCount())), player.getX(), player.getY(), null);
+		g.drawImage(player.getScaledImage((int)((timeMillis / 200) % player.getImageCount())), player.getX(), player.getY(), null);
 
 
 		//ansia che aumenta
 		Composite composite = g2d.getComposite();
 		int rule = AlphaComposite.SRC_OVER;
-        Composite comp = AlphaComposite.getInstance(rule , Math.min(1, player.getAnxiety()/100f) );
+        Composite comp = AlphaComposite.getInstance(rule , Math.min(1, gameManager.isGameOver()?1: player.getAnxiety()/100f) );
         g2d.setComposite(comp );
 //        g2d.setColor(Color.green);
 //        g2d.fillRect(0, 0, getWidth(),getHeight());
@@ -108,7 +112,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		
 		g2d.setComposite(composite);
 		
-		g.drawImage(player.getCurrentHead(), 30, 10,95,120, null);
+		g.drawImage(player.getCurrentHead(), 30, 10, null);
 		
 		g.setColor(player.getCurrentColor());
 		g.setFont(font);
@@ -126,7 +130,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		g.setColor(new Color(192,41,255));
 //		g.setColor(Color.GREEN);
 		g.fillRect(anxX, anxY, player.getAnxiety()*(anxW/100)+(int)(Math.random()*2), anxH);
-		g.drawImage(ImageLoader.getAnxietyFrame(), anxX-14, anxY-5,anxW+30,anxH+10, null);
+		g.drawImage(ImageLoader.getAnxietyFrame(), anxX-14, anxY-5, null);
 		if(!gameManager.isGameOver()) {
 			g.drawImage(ImageLoader.getWebcamFrame(), 1000, 16, null);
 		}

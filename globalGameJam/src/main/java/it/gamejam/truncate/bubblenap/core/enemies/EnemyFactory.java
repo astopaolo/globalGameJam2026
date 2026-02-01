@@ -49,8 +49,8 @@ public interface EnemyCreator {
   }
 
   public void spawn(EnemyType type, Consumer<MovingObject> consumer) {
-    int x = 1500;
-    int y = 340;
+    int x = 1300;
+    int y = 320;
     AbstractEnemy enemy = create(type, x, y+(int)(Math.random()*20-10));
     consumer.accept(enemy);
   }

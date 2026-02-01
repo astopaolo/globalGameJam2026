@@ -3,6 +3,8 @@ package it.gamejam.truncate.bubblenap.core.enemies;
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.core.MovingObject;
 import it.gamejam.truncate.bubblenap.core.enums.MaskType;
+import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
+
 import java.awt.Image;
 import java.util.Objects;
 
@@ -12,6 +14,7 @@ public abstract class AbstractEnemy extends MovingObject {
   protected Image[] image;
   protected Image[] scaledInstance;
   protected boolean active = true;
+  private long startTaunting=0;
 
 
   public AbstractEnemy(int x, int y, int width, int height, double dx, double dy, MaskType maskType, Image[] image) {
@@ -24,7 +27,7 @@ public abstract class AbstractEnemy extends MovingObject {
   private void resizeImage() {
 	  scaledInstance=new Image[image.length];
 	  for(int i=0;i<image.length;i++) {
-		  scaledInstance[i] = image[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
+		  scaledInstance[i] = image[i];//.getScaledInstance(120, 220, Image.SCALE_SMOOTH);
 	  }
   }
 
@@ -34,6 +37,7 @@ public abstract class AbstractEnemy extends MovingObject {
 		  active = false;
 		if (!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
 			  gameManager.getMaskedPlayer().increaseAnxiety();
+			  startTaunting = System.currentTimeMillis();
 			  System.err.println("anxiety: "+gameManager.getMaskedPlayer().getAnxiety());
 			  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
 				  gameManager.gameOver();
@@ -47,8 +51,22 @@ public abstract class AbstractEnemy extends MovingObject {
   public Image getTransformedImage(int index) {
     return scaledInstance[index];
   }
+  Image i= ImageLoader.getAnxietyFrame().getScaledInstance(50, 50, Image.SCALE_SMOOTH );
+  protected  Image _getTauntingImage() {
+	  return i;
+  };
+  
+  public Image getTauntingImage() {
+	  if(startTaunting>0 && System.currentTimeMillis()-startTaunting<1000) {
+		  return _getTauntingImage();		  
+	  }else {
+		  startTaunting=0;
+		  return null;
+	  }
+  }
 
   public int getImageCount() {
     return scaledInstance.length;
   }
+  
 }

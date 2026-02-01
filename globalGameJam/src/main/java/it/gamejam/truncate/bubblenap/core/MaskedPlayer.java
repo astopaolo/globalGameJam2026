@@ -30,10 +30,10 @@ public class MaskedPlayer {
 		imagesMap = new EnumMap<>(MaskType.class);
 		iconsMap = new EnumMap<>(MaskType.class);
 		colorsMap = new EnumMap<>(MaskType.class);
-		imagesMap.put(MaskType.MUMMY, ImageLoader.getPlayerMummy());
-		imagesMap.put(MaskType.VAMPIRE, ImageLoader.getPlayerVampire());
-		imagesMap.put(MaskType.WEREWOLF, ImageLoader.getPlayerWerewolf());
-		imagesMap.put(MaskType.ZOMBIE, ImageLoader.getPlayerZombie());
+		imagesMap.put(MaskType.MUMMY, scale(ImageLoader.getPlayerMummy()));
+		imagesMap.put(MaskType.VAMPIRE, scale(ImageLoader.getPlayerVampire()));
+		imagesMap.put(MaskType.WEREWOLF, scale(ImageLoader.getPlayerWerewolf()));
+		imagesMap.put(MaskType.ZOMBIE, scale(ImageLoader.getPlayerZombie()));
 		imagesMap.put(MaskType.BASE, ImageLoader.getPlayerBase());
 	
 		iconsMap.put(MaskType.MUMMY, ImageLoader.getMummyHead());
@@ -48,6 +48,14 @@ public class MaskedPlayer {
 		colorsMap.put(MaskType.BASE, new Color(233, 181, 147));
 		
 		setMask(currentMask);
+	}
+
+	private Image[] scale(Image[] source) {
+		Image[] toReturn=new Image[source.length];
+		for (int i = 0; i < toReturn.length; i++) {
+			toReturn[i]=source[i].getScaledInstance(120, 220, Image.SCALE_SMOOTH);	
+		}
+		return toReturn;
 	}
 
 	public double getSpeed() {
@@ -99,7 +107,7 @@ public class MaskedPlayer {
 	}
 
 	public Image getScaledImage(int index) {
-		return currentMaskScaledImage[index].getScaledInstance(120, 220, Image.SCALE_SMOOTH);
+		return currentMaskScaledImage[index];
 	}
 
 	public int getImageCount() {
