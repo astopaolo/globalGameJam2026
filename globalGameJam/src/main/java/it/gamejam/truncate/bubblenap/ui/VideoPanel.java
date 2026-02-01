@@ -57,7 +57,7 @@ public class VideoPanel extends JPanel {
 		}
 	}
 
-	public void playVideoAndDrawNextPanel() {
+	public void playVideoAndDrawNextPanel(boolean restartMusic) {
 		currentFrame = 0;
 		for (byte[] music : musics) {
 
@@ -70,7 +70,7 @@ public class VideoPanel extends JPanel {
 			if (currentFrame == (videoFrames.size() - 1)) {
 				((Timer) e.getSource()).stop();
 
-				frame.drawPanel(nextPanelToDraw);
+				frame.drawPanel(nextPanelToDraw, restartMusic);
 			}
 
 		});

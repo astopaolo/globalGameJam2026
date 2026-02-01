@@ -3,7 +3,6 @@ package it.gamejam.truncate.bubblenap.ui;
 
 import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamPanel.DrawMode;
-
 import it.gamejam.truncate.bubblenap.core.GameManager;
 import it.gamejam.truncate.bubblenap.ui.audio.SimpleAudioPlayer;
 import it.gamejam.truncate.bubblenap.ui.audio.SoundProvider;
@@ -51,7 +50,7 @@ public class MainFrame extends JFrame {
 
 	private final CreditsMenuPanel creditsMenu;
 	private final GamePanel gamePanel;
-	//private final VideoPanel introVideoPanel;
+	private final VideoPanel introVideoPanel;
 	private final VideoPanel gameOverVideoPanel;
 	private final ScorePanel scorePanel;
 
@@ -66,8 +65,8 @@ public class MainFrame extends JFrame {
 		setTitle("Mask or Die");
 		menuPanel = new MenuPanel(this);
 		creditsMenu = new CreditsMenuPanel(this);
-//		introVideoPanel = new VideoPanel(this, ImageLoader.getIntroVideoFrames(), EnumPanel.GAME_PANEL,
-//				List.of(SoundProvider.getVideoIntro()), Optional.of(MESSAGE_VIDEO_INTRO));
+		introVideoPanel = new VideoPanel(this, ImageLoader.getIntroVideoFrames(), EnumPanel.GAME_PANEL,
+				List.of(), Optional.empty());
 
 		gamePanel = new GamePanel(gameManager, this);
 		scorePanel = new ScorePanel(gameManager, this);
@@ -133,12 +132,13 @@ public class MainFrame extends JFrame {
 			}
 			break;
 		case INTRO_VIDEO_PANEL:
-//			this.setContentPane(introVideoPanel);
-//			introVideoPanel.playVideoAndDrawNextPanel();
+			this.setContentPane(introVideoPanel);
+			introVideoPanel.playVideoAndDrawNextPanel(true);
 			break;
 		case GAME_OVER_VIDEO_PANEL:
+			gameMusic.stop();
 			this.setContentPane(gameOverVideoPanel);
-			gameOverVideoPanel.playVideoAndDrawNextPanel();
+			gameOverVideoPanel.playVideoAndDrawNextPanel(true);
 			break;
 		case SCORE_PANEL:
 			this.setContentPane(scorePanel);

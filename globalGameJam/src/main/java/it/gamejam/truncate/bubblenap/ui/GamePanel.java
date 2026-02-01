@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.image.RescaleOp;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -63,10 +62,7 @@ public class GamePanel extends JPanel implements Repaintable {
 
 
 		if (gameManager.isGameOver()) {
-//
-//			g.drawImage(ImageLoader.getBollaMucoScoppiata(), bubble.getX() - (int) bubble.getRadius(),
-//					bubble.getY() - (int) bubble.getRadius(), (int) bubble.getRadius() * 2,
-//					(int) bubble.getRadius() * 2, null);
+
 			if (!startedGameOverThread.get()) {
 				startedGameOverThread.set(true);
 				new Thread() {

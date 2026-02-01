@@ -55,8 +55,8 @@ public class MenuPanel extends JPanel {
 						&& (e.getY() <= (PLAY_BUTTON_Y + ImageLoader.getImagePlay().getHeight(null)))) {
 
 					frame.getBackgroundMusic().stop();
-					//frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
-					frame.drawPanel(EnumPanel.GAME_PANEL, true);
+					frame.drawPanel(EnumPanel.INTRO_VIDEO_PANEL);
+					//frame.drawPanel(EnumPanel.GAME_PANEL, true);
 				}
 				if ((e.getX() >= CREDITS_X) && (e.getX() <= (CREDITS_X + ImageLoader.getImagePlay().getWidth(null)))
 						&& (e.getY() >= CREDITS_Y)

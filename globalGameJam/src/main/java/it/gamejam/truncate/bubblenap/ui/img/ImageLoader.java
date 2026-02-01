@@ -148,8 +148,8 @@ public class ImageLoader {
 
 			saverioMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_mask.png"));
 			saverioNoMask = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/credits/saverio_no_mask.png"));
-//			introVideoFrames = getVideoFrames("img/video/intro/", 100);
-//			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 85);
+			introVideoFrames = getVideoFrames("img/video/intro/", 26);
+			gameOverVideoFrames = getVideoFrames("img/video/gameover/", 27);
 
 		} catch (final IOException e) {
 			e.printStackTrace();
@@ -284,11 +284,7 @@ public class ImageLoader {
         return paoloMask;
     }
 
-    public static void setPaoloMask(Image paoloMask) {
-        ImageLoader.paoloMask = paoloMask;
-    }
-
-    public static Image getPaoloNoMask() {
+	public static Image getPaoloNoMask() {
         return paoloNoMask;
     }
 

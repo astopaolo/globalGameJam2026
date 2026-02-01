@@ -20,7 +20,7 @@ public class ScorePanel extends JPanel {
 	private static final int BACK_Y = 643;
 	MainFrame frame;
 	private GameManager gameManager;
-	private Font bubbleFont;
+	private Font titleFont;
 
 	public ScorePanel(final GameManager gameManager, final MainFrame frame) {
 		this.gameManager = gameManager;
@@ -83,18 +83,18 @@ public class ScorePanel extends JPanel {
 		g.drawImage(back, BACK_X, BACK_Y, 330, 83, null);
 
 		g.setColor(Color.WHITE);
-		g.setFont(bubbleFont);
+		g.setFont(titleFont);
 
 		g.drawString("Points: " + gameManager.getPoints(), 640 - 400, 384);
 
 	}
 
 	private void loadFont() {
-		if (bubbleFont == null) {
+		if (titleFont == null) {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/bubble_gum.otf")));
-				bubbleFont = new Font("Bubble gum", Font.BOLD, 100);
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
+				titleFont = new Font("Creepster", Font.BOLD, 160);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}
