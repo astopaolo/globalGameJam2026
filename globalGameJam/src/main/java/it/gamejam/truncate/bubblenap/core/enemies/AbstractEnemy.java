@@ -9,6 +9,7 @@ import it.gamejam.truncate.bubblenap.ui.img.ImageLoader;
 
 import java.awt.Image;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class AbstractEnemy extends MovingObject {
 
@@ -40,7 +41,8 @@ public abstract class AbstractEnemy extends MovingObject {
 		if (!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
 			  gameManager.getMaskedPlayer().increaseAnxiety();
 			  startTaunting = System.currentTimeMillis();
-        new Thread(() -> SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getHitSound(), 4f)).start();
+        new Thread(() -> SimpleAudioPlayer.playSyncSoundOnce(SoundProvider.getHitSound()[(ThreadLocalRandom.current()
+            .nextInt(0, SoundProvider.getHitSound().length))], 5f)).start();
 			  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
 				  gameManager.gameOver();
 			  }

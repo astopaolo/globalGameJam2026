@@ -12,7 +12,7 @@ public class SoundProvider {
 	private static byte[] gameOverBackground;
 	private static byte[] gameOverBreath;
 	private static byte[] introSound;
-	private static byte[] hitSound;
+	private static byte[][] hitSound;
 
 	static {
 
@@ -41,10 +41,12 @@ public class SoundProvider {
 				menuSound = new byte[fis.available()];
 				fis.read(menuSound);
 			}
-
-			try (FileInputStream fis = new FileInputStream("resources/audio/scream-male.wav")) {
-				hitSound = new byte[fis.available()];
-				fis.read(hitSound);
+			hitSound = new byte[3][];
+			for(int i = 1;i <= 3 ;i++) {
+				try (FileInputStream fis = new FileInputStream("resources/audio/scream/scream-male" + i + ".wav")) {
+					hitSound[i-1] = new byte[fis.available()];
+					fis.read(hitSound[i-1]);
+				}
 			}
 		} catch (final Exception e) {
 			e.printStackTrace();
@@ -52,7 +54,7 @@ public class SoundProvider {
 		}
 	}
 
-	public static byte[] getHitSound() {
+	public static byte[][] getHitSound() {
 		return hitSound;
 	}
 
@@ -69,8 +71,6 @@ public class SoundProvider {
 	public static byte[] getMenuSound() {
 		return menuSound;
 	}
-
-
 
 	public static Map<String, byte[]> getSamples(final File dir) throws IOException {
 		final Map<String, byte[]> samples = new HashMap<>();
