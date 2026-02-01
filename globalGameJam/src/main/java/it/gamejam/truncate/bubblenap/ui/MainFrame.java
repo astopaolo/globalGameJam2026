@@ -152,8 +152,8 @@ public class MainFrame extends JFrame {
 
 	private void showWebcamDialog() {
 		Point frameLocation = this.getLocation();
-        int x = frameLocation.x + this.getWidth()-dialog.getWidth()+20;
-        int y = frameLocation.y-20;
+        int x = frameLocation.x + this.getWidth()-dialog.getWidth()-30;
+        int y = frameLocation.y+25;
 
         dialog.setLocation(x, y);
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
