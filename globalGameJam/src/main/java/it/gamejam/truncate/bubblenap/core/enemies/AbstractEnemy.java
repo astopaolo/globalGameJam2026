@@ -30,14 +30,18 @@ public abstract class AbstractEnemy extends MovingObject {
 
   @Override
   protected void applyEffect(GameManager gameManager) {
-	  if(active && !Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
-		  gameManager.getMaskedPlayer().increaseAnxiety();
-		  System.err.println("anxiety: "+gameManager.getMaskedPlayer().getAnxiety());
-		  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
-			  gameManager.gameOver();
-		  }
+	  if(active) {
 		  active = false;
-	  }
+		if (!Objects.equals(gameManager.getCurrentMask(), this.maskType)) {
+			  gameManager.getMaskedPlayer().increaseAnxiety();
+			  System.err.println("anxiety: "+gameManager.getMaskedPlayer().getAnxiety());
+			  if(gameManager.getMaskedPlayer().getAnxiety()>=100) {
+				  gameManager.gameOver();
+			  }
+		} else {
+			  gameManager.getMaskedPlayer().decreaseAnxiety();
+		}
+	} 
   }
   @Override
   public Image getTransformedImage(int index) {
