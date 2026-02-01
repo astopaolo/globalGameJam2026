@@ -79,8 +79,10 @@ public class GamePanel extends JPanel implements Repaintable {
 			}
 		} else {
 
-			g.drawImage(ImageLoader.getGameScreen(), gameManager.getFirstBackgroundX(), 0, 2690, getHeight(), null);
-			g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
+			g.drawImage(ImageLoader.getGameScreen1(), gameManager.getFirstBackgroundX(), 0, null);
+			g.drawImage(ImageLoader.getGameScreen2(), gameManager.getSecondBackgroundX(), 0, null);
+//			g.drawImage(ImageLoader.getGameScreen(), gameManager.getFirstBackgroundX(), 0, 2690, getHeight(), null);
+//			g.drawImage(ImageLoader.getGameScreen(), gameManager.getSecondBackgroundX(), 0, 2690, getHeight(), null);
 
 		}
 

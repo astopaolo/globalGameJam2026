@@ -44,6 +44,8 @@ public class ImageLoader {
 
 	private static BufferedImage bloodCurtain;
 	private static Image gameScreen;
+	private static Image gameScreen1;
+	private static Image gameScreen2;
 	private static Image scoreBackground;
 
 	private static Image luigiMask;
@@ -127,6 +129,8 @@ public class ImageLoader {
 			backPressed = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/Back_Pressed.png"));
 
 			gameScreen = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen.png"));
+			gameScreen1 = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen-1.png"));
+			gameScreen2 = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/GameScreen-2.png"));
 
 			scoreBackground = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/menu/score_background.png"));
 
@@ -164,7 +168,14 @@ public class ImageLoader {
 	public static Image getGameScreen() {
 		return gameScreen;
 	}
-
+	
+	public static Image getGameScreen1() {
+		return gameScreen1;
+	}
+	
+	public static Image getGameScreen2() {
+		return gameScreen2;
+	}
 
 	public static Image getImageBack() {
 		return back;
