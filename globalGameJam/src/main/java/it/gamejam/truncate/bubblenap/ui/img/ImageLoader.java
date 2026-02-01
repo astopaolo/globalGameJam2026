@@ -33,6 +33,7 @@ public class ImageLoader {
 	private static Image zombieHead;
 	private static Image vampireHead;
 	private static Image mummyHead;
+	private static Image baseHead;
 
 	private static Image[] player;
 	private static Image[] playerMummy;
@@ -86,6 +87,7 @@ public class ImageLoader {
 				vampire[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/vampire/"+i+".png"));
 				mummy[i-1]= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/mummy/"+i+".png"));
 			}
+			baseHead = ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/base.png"));
 			zombieHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/zombie.png"));
 			werewolfHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/werewolf.png"));
 			vampireHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/vampire.png"));
@@ -330,6 +332,8 @@ public class ImageLoader {
 	public static Image getMummyHead() {
 		return mummyHead;
 	}
+
+	public static Image getBaseHead() { return baseHead; }
 
 	public static Image getAnxietyFrame() {
 		return anxietyFrame;

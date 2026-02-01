@@ -108,7 +108,7 @@ public class GamePanel extends JPanel implements Repaintable {
 		
 		g2d.setComposite(composite);
 		
-		g.drawImage(player.getCurrentHead(), 10, 10,90,120, null);
+		g.drawImage(player.getCurrentHead(), 10, 10,95,120, null);
 		
 		g.setColor(Color.WHITE);
 		g.setFont(font);

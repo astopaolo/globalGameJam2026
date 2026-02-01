@@ -35,7 +35,7 @@ public class MaskedPlayer {
 		iconsMap.put(MaskType.VAMPIRE, ImageLoader.getVampireHead());
 		iconsMap.put(MaskType.WEREWOLF, ImageLoader.getWerewolfHead());
 		iconsMap.put(MaskType.ZOMBIE, ImageLoader.getZombieHead());
-		iconsMap.put(MaskType.BASE, ImageLoader.getLuigiNoMask());
+		iconsMap.put(MaskType.BASE, ImageLoader.getBaseHead());
 		
 		setMask(currentMask);
 	}
