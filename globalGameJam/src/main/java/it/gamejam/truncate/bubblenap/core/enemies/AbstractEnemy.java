@@ -53,14 +53,11 @@ public abstract class AbstractEnemy extends MovingObject {
   public Image getTransformedImage(int index) {
     return scaledInstance[index];
   }
-  Image i= ImageLoader.getAnxietyFrame().getScaledInstance(50, 50, Image.SCALE_SMOOTH );
-  protected  Image _getTauntingImage() {
-	  return i;
-  };
+  protected abstract Image _getTauntingImage(); 
   
   public Image getTauntingImage() {
 	  if(startTaunting>0 && System.currentTimeMillis()-startTaunting<1000) {
-		  return _getTauntingImage();		  
+		  return _getTauntingImage();//.getScaledInstance(200, 200, Image.SCALE_SMOOTH);		  
 	  }else {
 		  startTaunting=0;
 		  return null;

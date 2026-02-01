@@ -11,4 +11,9 @@ public class Vampire extends AbstractEnemy{
     super(x, y, width, height, dx, dy, MaskType.VAMPIRE, ImageLoader.getVampire());
   }
 
+@Override
+protected Image _getTauntingImage() {
+	return ImageLoader.getVampireTaunting();
+}
+
 }

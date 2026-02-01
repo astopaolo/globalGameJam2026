@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements Repaintable {
 				g.drawImage(o.getTransformedImage((int)((timeMillis / 150) % ((AbstractEnemy) o).getImageCount())), o.getX(), o.getY(), null);
 				Image tauntingImage = ((AbstractEnemy) o).getTauntingImage();
 				if(tauntingImage!=null) {
-					g.drawImage(tauntingImage, o.getX(), o.getY(), null);
+					g.drawImage(tauntingImage, o.getX()+45, o.getY()-200, null);
 				}
 			}else{
 				g.drawImage(o.getTransformedImage(0), o.getX(), o.getY(), null);

@@ -29,6 +29,10 @@ public class ImageLoader {
 	private static Image[] zombie;
 	private static Image[] vampire;
 	private static Image[] mummy;
+	private static Image werewolfTaunting;
+	private static Image zombieTaunting;
+	private static Image vampireTaunting;
+	private static Image mummyTaunting;
 	private static Image werewolfHead;
 	private static Image zombieHead;
 	private static Image vampireHead;
@@ -95,6 +99,11 @@ public class ImageLoader {
 			werewolfHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/werewolf.png"));
 			vampireHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/vampire.png"));
 			mummyHead= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/heads/mummy.png"));
+
+			zombieTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/zombie.png"));
+			werewolfTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/werewolf.png"));
+			vampireTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/vampire.png"));
+			mummyTaunting= ImageIO.read(Thread.currentThread().getContextClassLoader().getResource("img/game/enemies/taunting/mummy.png"));
 
 			playerMummy = new Image[FRAMES];
 			playerVampire = new Image[FRAMES];
@@ -359,4 +368,16 @@ public class ImageLoader {
 	public static Image[] getManhole() { return manhole; }
 
 	public static Image getHydrant() { return hydrant; }
+	public static Image getMummyTaunting() {
+		return mummyTaunting;
+	}
+	public static Image getWerewolfTaunting() {
+		return werewolfTaunting;
+	}
+	public static Image getVampireTaunting() {
+		return vampireTaunting;
+	}
+	public static Image getZombieTaunting() {
+		return zombieTaunting;
+	}
 }

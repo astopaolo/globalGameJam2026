@@ -11,4 +11,9 @@ public class Mummy extends AbstractEnemy {
     super(x, y, width, height, dx, dy, MaskType.MUMMY, ImageLoader.getMummy());
   }
 
+@Override
+protected Image _getTauntingImage() {
+	return ImageLoader.getMummyTaunting();
+}
+
 }
