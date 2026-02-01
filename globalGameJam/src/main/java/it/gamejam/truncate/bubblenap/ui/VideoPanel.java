@@ -52,7 +52,7 @@ public class VideoPanel extends JPanel {
 				g.setColor(Color.WHITE);
 				g.setFont(font);
 
-				g.drawString(message.get(), 15, 768 - 50);
+				g.drawString(message.get(), 250, 300);
 			}
 		}
 	}
@@ -83,7 +83,7 @@ public class VideoPanel extends JPanel {
 			try {
 				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
-				font = new Font("Creepster", Font.BOLD, 55);
+				font = new Font("Creepster", Font.BOLD, 118);
 			} catch (IOException | FontFormatException e) {
 				// IGNORE
 			}
