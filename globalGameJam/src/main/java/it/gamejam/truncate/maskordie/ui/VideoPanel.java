@@ -1,0 +1,94 @@
+package it.gamejam.truncate.maskordie.ui;
+
+import it.gamejam.truncate.maskordie.ui.audio.SimpleAudioPlayer;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
+
+public class VideoPanel extends JPanel {
+
+	private static final long serialVersionUID = 5857392141854818722L;
+	MainFrame frame;
+	private List<Image> videoFrames;
+	private int currentFrame;
+	private EnumPanel nextPanelToDraw;
+	private List<byte[]> musics;
+	private Font font;
+	private Optional<String> message;
+
+	public VideoPanel(final MainFrame frame, final List<Image> videoFrames, final EnumPanel nextPanelToDraw,
+			final List<byte[]> musics, final Optional<String> message) {
+		this.frame = frame;
+		this.nextPanelToDraw = nextPanelToDraw;
+		this.musics = musics;
+		this.message = message;
+		this.setLayout(null);
+		this.videoFrames = videoFrames;
+		currentFrame = 0;
+		setPreferredSize(new Dimension(1280, 768));
+		requestFocus();
+		loadFont();
+	}
+
+	@Override
+	public void paintComponent(final Graphics g) {
+		super.paintComponent(g);
+		
+		Graphics2D g2d = (Graphics2D) g;
+
+        // Enable anti-aliasing for text
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+		if (currentFrame < videoFrames.size()) {
+			g.drawImage(videoFrames.get(currentFrame), 0, 0, this.getWidth(), this.getHeight(), null);
+			currentFrame++;
+
+			if (message.isPresent()) {
+				g.setColor(Color.WHITE);
+				g.setFont(font);
+
+				g.drawString(message.get(), 250, 300);
+			}
+		}
+	}
+
+	public void playVideoAndDrawNextPanel(boolean restartMusic) {
+		currentFrame = 0;
+		for (byte[] music : musics) {
+
+			new Thread(() -> SimpleAudioPlayer.playSyncSoundOnce(music, 3f)).start();
+		}
+
+		Timer timer = new Timer(1000 / 24, e -> {
+			repaint();
+
+			if (currentFrame == (videoFrames.size() - 1)) {
+				((Timer) e.getSource()).stop();
+
+				frame.drawPanel(nextPanelToDraw, restartMusic);
+			}
+
+		});
+		timer.start();
+
+	}
+
+	private void loadFont() {
+		if (font == null) {
+			try {
+				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Creepster-Regular.otf")));
+				font = new Font("Creepster", Font.BOLD, 118);
+			} catch (IOException | FontFormatException e) {
+				// IGNORE
+			}
+		}
+
+	}
+
+}
